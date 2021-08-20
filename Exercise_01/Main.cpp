@@ -131,13 +131,16 @@ void Output(map<string, list<StudentScore*>>* _pStudentScoreList)
 		iter != _pStudentScoreList->end(); ++iter)
 	{
 		cout <<iter->first<< endl;
-		string test = (string)iter->first;
-
-		list<StudentScore*> tmp;
-		tmp = _pStudentScoreList[test];
-	//	for (list<StudentScore*>::iterator iter2 = tmp->begin(); iter2 != tmp->end(); ++iter2)
+		//string test = (string)iter->first;
+		
+		
+		for (list<StudentScore*>::iterator iter2 = iter->second.begin(); iter2 !=iter->second.end(); ++iter2)
 		{
-
+			cout << (*iter2)->Name << endl;
+			cout << "국어점수: " << (*iter2)->Kor << endl;
+			cout << "영어점수: " << (*iter2)->Eng << endl;
+			cout << "수학점수: " << (*iter2)->Math << endl;
+			cout << endl;
 		}
 
 	}
