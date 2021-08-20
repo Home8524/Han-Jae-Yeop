@@ -131,11 +131,10 @@ void Output(map<string, list<StudentScore*>>* _pStudentScoreList)
 		iter != _pStudentScoreList->end(); ++iter)
 	{
 		cout <<iter->first<< endl;
-		String test = iter->first;
-		//strcpy(pName, Buffer);
+		string test = (string)iter->first;
 
 		list<StudentScore*> tmp;
-		//tmp = _pStudentScoreList[iter->first];
+		tmp = _pStudentScoreList[test];
 	//	for (list<StudentScore*>::iterator iter2 = tmp->begin(); iter2 != tmp->end(); ++iter2)
 		{
 
