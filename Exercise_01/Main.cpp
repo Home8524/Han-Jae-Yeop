@@ -52,6 +52,7 @@ int main(void)
 	Temp.push_back(new StudentScore((char*)"S²©Á¤", 4, 5, 6));
 	Temp.push_back(new StudentScore((char*)"S¸ù·æ", 7, 8, 9));
 	StudentScoreList["S ÇÐ±³"] = Temp;
+	
 	Temp.clear();
 
 	Temp.push_back(new StudentScore((char*)"G±æµ¿", 10, 20, 30));
@@ -130,9 +131,12 @@ void Output(map<string, list<StudentScore*>>* _pStudentScoreList)
 		iter != _pStudentScoreList->end(); ++iter)
 	{
 		cout <<iter->first<< endl;
+		String test = iter->first;
+		//strcpy(pName, Buffer);
+
 		list<StudentScore*> tmp;
-		tmp = iter->second;
-		for (list<StudentScore*>::iterator iter2 = tmp->begin(); iter2 != tmp->end(); ++iter2)
+		//tmp = _pStudentScoreList[iter->first];
+	//	for (list<StudentScore*>::iterator iter2 = tmp->begin(); iter2 != tmp->end(); ++iter2)
 		{
 
 		}
