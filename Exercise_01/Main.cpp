@@ -125,14 +125,18 @@ void AddStudent(map<string, list<StudentScore*>>* _pStudentScoreList, string _st
 // ** 숙제 : map 안의  list 내용을 출력
 void Output(map<string, list<StudentScore*>>* _pStudentScoreList)
 {
-	/*
-	for (list<StudentScore*>::iterator iter = _pStudentScoreList->begin();
+	
+	for (map<string,list<StudentScore*>>::iterator iter = _pStudentScoreList->begin();
 		iter != _pStudentScoreList->end(); ++iter)
 	{
-		cout << "이름 : " << (*iter)->Name << endl;
-		cout << "국어 점수 : " << (*iter)->Kor << endl;
-		cout << "영어 점수 : " << (*iter)->Eng << endl;
-		cout << "수학 점수 : " << (*iter)->Math << endl << endl;
+		cout <<iter->first<< endl;
+		list<StudentScore*> tmp;
+		tmp = iter->second;
+		for (list<StudentScore*>::iterator iter2 = tmp->begin(); iter2 != tmp->end(); ++iter2)
+		{
+
+		}
+
 	}
-	*/
+	
 }
