@@ -13,7 +13,9 @@ using namespace std;
 #include "Enum.h"
 #include "Constant.h"
 #include "Define.h"
+#include "Bitmap.h"
 
+#pragma comment(lib, "msimg32.lib")
 
 
 extern HWND g_hWnd;

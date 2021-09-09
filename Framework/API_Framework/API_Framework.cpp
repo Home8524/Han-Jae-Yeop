@@ -73,16 +73,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     /*
-    // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
-    {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-        {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
-        }
-    }
+        https://www.gameart2d.com/
+        https://itch.io/game-assets/free/tag-rpgmaker
+        https://opengameart.org/
+        https://www.spriters-resource.com/
     */
+
+
+
 
     return (int) msg.wParam;
 }

@@ -7,16 +7,16 @@ void InputManager::CheckKey()
 {
 	Key = 0;
 
-	if (GetAsyncKeyState(VK_UP))
+	if (GetAsyncKeyState(VK_UP) || GetAsyncKeyState('W'))
 		Key |= KEY_UP;
 
-	if (GetAsyncKeyState(VK_DOWN))
+	if (GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState('S'))
 		Key |= KEY_DOWN;
 
-	if (GetAsyncKeyState(VK_LEFT))
+	if (GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('A'))
 		Key |= KEY_LEFT;
 
-	if (GetAsyncKeyState(VK_RIGHT))
+	if (GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState('D'))
 		Key |= KEY_RIGHT;
 
 	if (GetAsyncKeyState(VK_ESCAPE))
@@ -27,4 +27,7 @@ void InputManager::CheckKey()
 
 	if (GetAsyncKeyState(VK_RETURN))
 		Key |= KEY_ENTER;
+
+	if (GetAsyncKeyState(VK_LBUTTON))
+		Key |= KEY_LBUTTON;
 }

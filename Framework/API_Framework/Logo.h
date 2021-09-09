@@ -3,6 +3,8 @@
 
 class Logo : public Scene
 {
+private:
+	map<string, Bitmap*> ImageList;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

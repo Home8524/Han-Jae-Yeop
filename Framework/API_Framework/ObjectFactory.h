@@ -12,4 +12,13 @@ public:
 
 		return pObj;
 	}
+
+	static Object* CreateObject(Vector3 _vPos)
+	{
+		Object* pObj = new T;
+		pObj->Initialize();
+		pObj->SetPosition(_vPos);
+
+		return pObj;
+	}
 };

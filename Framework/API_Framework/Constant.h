@@ -9,6 +9,9 @@ const DWORD KEY_ESCAPE	= 0x00000010;
 const DWORD KEY_SPACE	= 0x00000020;
 const DWORD KEY_ENTER	= 0x00000040;
 
+// ** 마우스 좌측 키 입력 확인.
+const DWORD KEY_LBUTTON = 0x00000080;
+
 
 
 

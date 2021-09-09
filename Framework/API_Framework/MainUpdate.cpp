@@ -21,7 +21,6 @@ void MainUpdate::Initialize()
 	m_hdc = GetDC(g_hWnd);
 
 	SceneManager::GetInstance()->SetScene(SCENEID::LOGO);
-	//SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
 }
 
 void MainUpdate::Update()
@@ -33,8 +32,6 @@ void MainUpdate::Update()
 
 void MainUpdate::Render()
 {
-	Rectangle(m_hdc, 0, 0, WindowsWidth, WindowsHeight);
-
 	SceneManager::GetInstance()->Render(m_hdc);
 }
 

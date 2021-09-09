@@ -67,6 +67,21 @@
     <Filter Include="소스 파일\99. Manager\Pattern\Prototype">
       <UniqueIdentifier>{ab15e6f0-9797-4dd6-8569-a7ad3dd1b12f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\CollisionManager">
+      <UniqueIdentifier>{bfd29dc4-8124-47ff-a70c-a694a76d0c90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\MathManager">
+      <UniqueIdentifier>{137836cd-84c4-4169-b9e4-6d74da496c31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\RenderManager">
+      <UniqueIdentifier>{84c92547-6995-4512-be12-1aa8f8d0f0d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\RenderManager\Bitmap">
+      <UniqueIdentifier>{5c0e7c88-281f-4729-920c-d9021fd496fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Stage_Back">
+      <UniqueIdentifier>{2c929ed0-c929-4160-958b-ae0494390414}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -138,6 +153,21 @@
     <ClInclude Include="SceneManager.h">
       <Filter>소스 파일\99. Manager\SceneManager</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>소스 파일\99. Manager\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MathManager.h">
+      <Filter>소스 파일\99. Manager\MathManager</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderManager.h">
+      <Filter>소스 파일\99. Manager\RenderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap.h">
+      <Filter>소스 파일\99. Manager\RenderManager\Bitmap</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_Back.h">
+      <Filter>소스 파일\02. Object\Stage_Back</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -181,6 +211,18 @@
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>소스 파일\99. Manager\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MathManager.cpp">
+      <Filter>소스 파일\99. Manager\MathManager</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderManager.cpp">
+      <Filter>소스 파일\99. Manager\RenderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Bitmap.cpp">
+      <Filter>소스 파일\99. Manager\RenderManager\Bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Back.cpp">
+      <Filter>소스 파일\02. Object\Stage_Back</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

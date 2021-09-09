@@ -1,7 +1,9 @@
 #include "ObjectManager.h"
+#include "MathManager.h"
 #include "ObjectFactory.h"
 #include "Prototype.h"
 #include "Enemy.h"
+#include "Bullet.h"
 
 ObjectManager* ObjectManager::Instance = nullptr;
 
@@ -38,7 +40,7 @@ void ObjectManager::FindObject(string _Key)
 	map<string, list<Object*>>::iterator iter = DisableList.find(_Key);
 
 	// ** 없으면.....
-	if (iter == DisableList.end())
+	if (iter == DisableList.end() || iter->second.empty())
 	{
 		Object* pObject = CreateObject(_Key);
 
@@ -47,6 +49,15 @@ void ObjectManager::FindObject(string _Key)
 
 		// ** DisableList 삽입
 		EnableList.push_back(pObject);
+	}
+	else
+	{
+		Object* pObject = iter->second.front();
+		pObject->Initialize();
+
+		// ** DisableList 삽입
+		EnableList.push_back(pObject);
+		iter->second.pop_front();
 	}
 }
 
@@ -78,7 +89,7 @@ void ObjectManager::FindObject(string _Key, Vector3 _Position)
 	map<string, list<Object*>>::iterator iter = DisableList.find(_Key);
 
 	// ** 없으면.....
-	if (iter == DisableList.end())
+	if (iter == DisableList.end() || iter->second.empty())
 	{
 		Object* pObject = CreateObject(_Key, _Position);
 
@@ -87,6 +98,17 @@ void ObjectManager::FindObject(string _Key, Vector3 _Position)
 
 		// ** DisableList 삽입
 		EnableList.push_back(pObject);
+	}
+	else
+	{
+		Object* pObject = iter->second.front();
+		pObject->Initialize();
+		pObject->SetPosition(_Position);
+
+		// ** DisableList 삽입
+		EnableList.push_back(pObject);
+
+		iter->second.pop_front();
 	}
 }
 
@@ -118,6 +140,52 @@ void ObjectManager::AddObject(string _strKey)
 	}
 }
 
+void ObjectManager::RecallObject(Object* _Object)
+{
+	map<string, list<Object*>>::iterator iter = DisableList.find(_Object->GetKey());
+
+	// ** 만약 결과물이 존재하지 않는다면....
+	if (iter == DisableList.end())
+	{
+		// ** 새로운 리스트를 생성.
+		list<Object*> TempList;
+
+		TempList.push_back(_Object);
+
+		// ** 오브젝트가 추가된 리스트를 맵에 삽입.
+		DisableList.insert(make_pair(_Object->GetKey(), TempList));
+	}
+	// ** 결과물이 존재 한다면...
+	else
+		// ** 해당 리스트에 오브젝트를 추가
+		iter->second.push_back(_Object);
+}
+
+Object* ObjectManager::GetTarget(Vector3 _Pos)
+{
+	// ** 멀티맵을 만든다. Key = 거리, value = Object
+	multimap<float, Object*> FindTargetList;
+
+
+	// ** 모든 적 유닛리스트를 돌면서 확인한다.
+	for (vector<Object*>::iterator iter = EnemyList.begin();
+		iter != EnemyList.end(); ++iter)
+	{
+		// ** 멀티맵에 Current 와 Target 의 거리를 구해서 추가한다.
+		FindTargetList.insert(
+			make_pair(
+			MathManager::GetDistance(_Pos, (*iter)->GetPosition()),	// ** Key
+			(*iter)));	// ** Value
+	}
+
+	// ** 만약에 리스트에 아무것도 없다면....
+	if (FindTargetList.empty())
+		return nullptr;
+
+	// ** 모든 오브젝트의 추가작업이 끝나면 가장 첫번째에 있는 오브젝트를 반환한다.
+	return FindTargetList.begin()->second;
+}
+
 void ObjectManager::Release()
 {
 	// ** 안전한 삭제.
@@ -135,11 +203,16 @@ void ObjectManager::Release()
 	}
 	DisableList.clear();
 
-
 	for (list<Object*>::iterator iter = EnableList.begin();
 		iter != EnableList.end(); ++iter)
 	{
 		::Safe_Delete((*iter));
 	}
 	EnableList.clear();
+}
+
+void ObjectManager::AddBullet(Vector3 _vPos)
+{
+	BulletList.push_back(
+		ObjectFactory<Bullet>::CreateObject(_vPos));
 }
