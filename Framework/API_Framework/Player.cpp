@@ -1,9 +1,11 @@
 #include "Player.h"
 #include "InputManager.h"
 #include "ObjectManager.h"
+#include "ObjectFactory.h"
 
 #include "Bullet.h"
-
+#include "NormalBullet.h"
+#include "BigBullet.h"
 
 Player::Player()
 {
@@ -37,6 +39,8 @@ void Player::Initialize()
 	JumpTime = 0.0f;
 
 	Offset = Vector3(95.0f, -85.0f);
+
+	BulletList = ObjectManager::GetInstance()->GetBulletList();
 }
 
 int Player::Update()
@@ -47,9 +51,22 @@ int Player::Update()
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_LBUTTON)
+	{
 		Frame = 1;
+	}
 	else
 		Frame = 0;
+
+	if (GetAsyncKeyState('Q'))
+	{
+		BulletList->push_back(CreateBullet<NormalBullet>());
+	}
+
+	if (GetAsyncKeyState('W'))
+	{
+		BulletList->push_back(CreateBullet<BigBullet>());
+	}
+
 
 	return 0;
 }
@@ -57,23 +74,16 @@ int Player::Update()
 void Player::Render(HDC _hdc)
 {
 	TransparentBlt(_hdc, // ** 최종 출력 위치
-		TransInfo.Position.x - (TransInfo.Scale.x / 2) + Offset.x,
-		TransInfo.Position.y - (TransInfo.Scale.y / 2) + Offset.y,
-		TransInfo.Scale.x,
-		TransInfo.Scale.y,
+		int(TransInfo.Position.x - (TransInfo.Scale.x / 2) + Offset.x),
+		int(TransInfo.Position.y - (TransInfo.Scale.y / 2) + Offset.y),
+		int(TransInfo.Scale.x),
+		int(TransInfo.Scale.y),
 		ImageList[strKey]->GetMemDC(),
-		TransInfo.Scale.x * Frame,
-		0,
-		TransInfo.Scale.x,
-		TransInfo.Scale.y,
+		int(TransInfo.Scale.x * Frame),
+		int(TransInfo.Scale.y * 0),
+		int(TransInfo.Scale.x),
+		int(TransInfo.Scale.y),
 		RGB(255, 0, 255));
-
-
-	Ellipse(_hdc,
-		Collider.Position.x - Collider.Scale.x / 2,
-		Collider.Position.y - Collider.Scale.y / 2,
-		Collider.Position.x + Collider.Scale.x / 2,
-		Collider.Position.y + Collider.Scale.y / 2);
 }
 
 void Player::Release()
@@ -89,4 +99,14 @@ void Player::Jump()
 	bJump = true;
 	OldPositionY = TransInfo.Position.y;
 	JumpTime = 0.0f;
-} 
+}
+
+template <typename T>
+Object* Player::CreateBullet()
+{
+	Bridge* pBridge = new T;
+
+	Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge);
+
+	return pBullet;
+}

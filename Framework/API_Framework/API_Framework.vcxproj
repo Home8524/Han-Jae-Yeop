@@ -140,20 +140,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h" />
+    <ClInclude Include="BigBullet.h" />
     <ClInclude Include="Bitmap.h" />
+    <ClInclude Include="Bridge.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletBridge.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyHole.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="HammerEffect.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="MainUpdate.h" />
     <ClInclude Include="MathManager.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="NormalBullet.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectManager.h" />
@@ -170,14 +176,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp" />
+    <ClCompile Include="BigBullet.cpp" />
     <ClCompile Include="Bitmap.cpp" />
+    <ClCompile Include="Bridge.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletBridge.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyHole.cpp" />
+    <ClCompile Include="HammerEffect.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="MainUpdate.cpp" />
     <ClCompile Include="MathManager.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="NormalBullet.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Player.cpp" />

@@ -82,6 +82,24 @@
     <Filter Include="소스 파일\02. Object\Stage_Back">
       <UniqueIdentifier>{2c929ed0-c929-4160-958b-ae0494390414}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\HammerEffect">
+      <UniqueIdentifier>{65f7cea3-2c63-4726-ab4e-935cfbc6f7bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\EnemyHole">
+      <UniqueIdentifier>{fd2dc172-e18e-4054-962d-a13e21893790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\Pattern\Bridge">
+      <UniqueIdentifier>{c4d1bd83-aff2-4aa2-8d00-d8d24fc923b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge">
+      <UniqueIdentifier>{c10b6be3-1b0a-465f-b4ef-f7853c366814}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet">
+      <UniqueIdentifier>{8158568a-9e7a-4da1-884a-02e88d0557b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\BigBullet">
+      <UniqueIdentifier>{ead73b8a-88e9-47ba-afb6-1919bb763561}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -107,9 +125,6 @@
     </ClInclude>
     <ClInclude Include="Constant.h">
       <Filter>헤더 파일\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers.h">
-      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="MainUpdate.h">
       <Filter>소스 파일\00. MainUpdate</Filter>
@@ -168,6 +183,27 @@
     <ClInclude Include="Stage_Back.h">
       <Filter>소스 파일\02. Object\Stage_Back</Filter>
     </ClInclude>
+    <ClInclude Include="Headers.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="HammerEffect.h">
+      <Filter>소스 파일\02. Object\HammerEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyHole.h">
+      <Filter>소스 파일\02. Object\EnemyHole</Filter>
+    </ClInclude>
+    <ClInclude Include="Bridge.h">
+      <Filter>소스 파일\99. Manager\Pattern\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletBridge.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalBullet.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BigBullet.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BigBullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -223,6 +259,24 @@
     </ClCompile>
     <ClCompile Include="Stage_Back.cpp">
       <Filter>소스 파일\02. Object\Stage_Back</Filter>
+    </ClCompile>
+    <ClCompile Include="HammerEffect.cpp">
+      <Filter>소스 파일\02. Object\HammerEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyHole.cpp">
+      <Filter>소스 파일\02. Object\EnemyHole</Filter>
+    </ClCompile>
+    <ClCompile Include="Bridge.cpp">
+      <Filter>소스 파일\99. Manager\Pattern\Bridge</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletBridge.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalBullet.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BigBullet.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BigBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

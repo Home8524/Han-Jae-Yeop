@@ -11,7 +11,7 @@ private:
 	float JumpTime;
 	int Frame;
 
-
+	vector<Object*>* BulletList;
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;
@@ -23,6 +23,10 @@ public:
 	bool GetJumpState() const { return bJump; }
 	void Jump();
 	void JumpOff() { bJump = false; }
+	int GetSwing() { return Frame; }
+
+	template <typename T>
+	Object* CreateBullet();
 public:
 	Player();
 	Player(const Transform& _rTransInfo) : Object(_rTransInfo) { }

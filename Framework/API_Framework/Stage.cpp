@@ -2,11 +2,12 @@
 #include "SceneManager.h"
 #include "ObjectManager.h"
 #include "Player.h"
-#include "Enemy.h"
+#include "EnemyHole.h"
+#include "HammerEffect.h"
 #include "ObjectFactory.h"
 #include "CollisionManager.h"
 #include "Stage_Back.h"
-#include "InputManager.h"
+
 
 Stage::Stage() : m_pPlayer(nullptr)
 {
@@ -32,6 +33,13 @@ void Stage::Initialize()
 	State_Back->Initialize();
 
 
+	m_pEffect = new HammerEffect;
+	m_pEffect->Initialize();
+	Cnt = 0;
+	Cnt_max = 16;
+	TileHeightCnt = 4;
+	TileWidthCnt = 4;
+	/*
 	// ** 적 생성
 	for (int i = 0; i < 8; ++i)
 	{
@@ -47,6 +55,24 @@ void Stage::Initialize()
 
 		EnemyList->push_back(pObj);
 	}
+	*/
+	
+	Vector3 Center = Vector3(WindowsWidth / 2.0f, WindowsHeight / 2.0f);
+
+	for (int y = 0; y < TileHeightCnt; ++y)
+	{
+		for (int x = 0; x < TileWidthCnt; ++x)
+		{
+			Object* pObj = new EnemyHole;
+			pObj->Initialize();
+
+			pObj->SetPosition(
+				(Center.x - ((TileWidthCnt / 2) * pObj->GetScale().x )) + pObj->GetScale().x * x,
+				(Center.y - ((TileHeightCnt / 2) * pObj->GetScale().y)) + pObj->GetScale().y * y);
+
+			EnemyList->push_back(pObj);
+		}
+	}
 
 	ImageList = Object::GetImageList();
 }
@@ -54,36 +80,42 @@ void Stage::Initialize()
 void Stage::Update()
 {
 	m_pPlayer->Update();
-	
+
+	if (m_pEffect->GetActive())
+		m_pEffect->Update();
+
+	if (((Player*)m_pPlayer)->GetSwing())
+	{
+		m_pEffect->SetActive(true);
+		m_pEffect->Initialize();
+	}
+
+	/*
 	for (vector<Object*>::iterator iter = EnemyList->begin();
 		iter != EnemyList->end(); )
 	{
 		int Result = (*iter)->Update();
+
+		if (CollisionManager::EllipseCollision(
+			m_pPlayer->GetColliderTransform(),
+			(*iter)->GetColliderTransform()))
+		{
+			if (((Player*)m_pPlayer)->GetSwing())
+				Result = 1;
+		}
 
 		if (Result == 1)
 			iter = EnemyList->erase(iter);
 		else
 			++iter;
 	}
-	
-	DWORD dwKey = InputManager::GetInstance()->GetKey();
+	*/
 
-	if (dwKey & KEY_LBUTTON)
-	{
-		RECT A = m_pPlayer->GetCollider();
-		for (vector<Object*>::iterator iter = EnemyList->begin();
-			iter != EnemyList->end(); )
-		{
-			RECT B = (*iter)->GetCollider();
-		
-			int Result = CollisionManager::RectCollision(A, B);
+	for (vector<Object*>::iterator iter = EnemyList->begin();
+		iter != EnemyList->end(); ++iter)
+		(*iter)->Update();
 
-			if (Result == 1)
-				iter = EnemyList->erase(iter);
-			else
-				++iter;
-		}
-	}
+
 
 	// ** 총알 리스트의 progress
 	for (vector<Object*>::iterator iter = BulletList->begin();
@@ -102,6 +134,8 @@ void Stage::Update()
 			{
 				// ** 몬스터 삭제
 				iter2 = EnemyList->erase(iter2);
+
+				Cnt++;
 
 				// ** 삭제할 오브젝트로 지정한뒤
 				iResult = 1;
@@ -122,21 +156,55 @@ void Stage::Update()
 		else
 			++iter;
 	}
+	if (Cnt == Cnt_max)
+	{
+		Cnt_max = 0;
+		Vector3 Center = Vector3(WindowsWidth / 2.0f, WindowsHeight / 2.0f);
+		for (int y = 0; y < TileHeightCnt; ++y)
+		{
+			for (int x = 0; x < TileWidthCnt; ++x)
+			{
+				int Summon = rand() % 2;
+				if (Summon ==1) {
+
+					Object* pObj = new EnemyHole;
+					pObj->Initialize();
+
+					pObj->SetPosition(
+						(Center.x - ((TileWidthCnt / 2) * pObj->GetScale().x)) + pObj->GetScale().x * x,
+						(Center.y - ((TileHeightCnt / 2) * pObj->GetScale().y)) + pObj->GetScale().y * y);
+
+					EnemyList->push_back(pObj);
+					Cnt_max++;
+				}
+			}
+		}
+		Cnt = 0;
+	}
 }
 
 void Stage::Render(HDC _hdc)
 {
 	State_Back->Render(ImageList["Buffer"]->GetMemDC());
 
+	
 	for (vector<Object*>::iterator iter = EnemyList->begin();
 		iter != EnemyList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
+	
 
 	for (vector<Object*>::iterator iter = BulletList->begin();
 		iter != BulletList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
 
+
+	if (m_pEffect->GetActive())
+		m_pEffect->Render(ImageList["Buffer"]->GetMemDC());
+
+
 	m_pPlayer->Render(ImageList["Buffer"]->GetMemDC());
+
+
 
 	BitBlt(_hdc,
 		0, 0,

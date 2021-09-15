@@ -1,10 +1,12 @@
 #pragma once
 #include "Object.h"
 
+class Bridge;
 class Bullet : public Object
 {
 private:
-	Object* Target;
+	Bridge* BridgeObject;
+
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;
@@ -13,10 +15,7 @@ public:
 
 	virtual Object* Clone()override { return new Bullet(*this); }
 public:
-	void SetTarget(Object* _Target) { Target = _Target; }
-
-
-
+	void SetBridge(Bridge* _pBridge) { BridgeObject = _pBridge; }
 public:
 	Bullet();
 	Bullet(const Transform& _rTransInfo) : Object(_rTransInfo) { }

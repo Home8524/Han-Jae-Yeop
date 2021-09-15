@@ -14,3 +14,8 @@ public:
 	MainUpdate();
 	~MainUpdate();
 };
+
+
+
+// ** UI
+// ** »ç¿îµå
