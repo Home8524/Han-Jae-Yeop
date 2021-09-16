@@ -32,7 +32,6 @@ void Stage::Initialize()
 	State_Back = new Stage_Back;
 	State_Back->Initialize();
 
-
 	m_pEffect = new HammerEffect;
 	m_pEffect->Initialize();
 	Cnt = 0;
@@ -164,9 +163,10 @@ void Stage::Update()
 		{
 			for (int x = 0; x < TileWidthCnt; ++x)
 			{
-				int Summon = rand() % 2;
-				if (Summon ==1) {
+				int tmp = rand() % 3;
 
+				if (tmp ==1) {
+					
 					Object* pObj = new EnemyHole;
 					pObj->Initialize();
 

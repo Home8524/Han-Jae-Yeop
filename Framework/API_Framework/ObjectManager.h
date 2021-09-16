@@ -26,6 +26,7 @@ private:
 	vector<Object*> EnemyList;
 	vector<Object*> BulletList;
 	map<string, list<Object*>> DisableList;
+
 public:
 	// ** 초기화
 	void Initialize();
@@ -57,7 +58,6 @@ public:
 	// ** 플레이어를 반환.
 	Object* GetPlayer() { return pPlayer; }
 	void SetPlayer(Object* _pPlayer) { pPlayer = _pPlayer; }
-
 
 	// ** map 컨테이너를 사용하고있는 ObjectList를 반환.
 	list<Object*>* GetEnableList() { return &EnableList; }

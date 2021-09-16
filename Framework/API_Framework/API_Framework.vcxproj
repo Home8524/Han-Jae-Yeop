@@ -149,6 +149,7 @@
     <ClInclude Include="Constant.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Enemy2.h" />
     <ClInclude Include="EnemyHole.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="framework.h" />
@@ -182,6 +183,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletBridge.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Enemy2.cpp" />
     <ClCompile Include="EnemyHole.cpp" />
     <ClCompile Include="HammerEffect.cpp" />
     <ClCompile Include="InputManager.cpp" />

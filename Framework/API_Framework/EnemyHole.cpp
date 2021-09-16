@@ -1,6 +1,7 @@
 #include "EnemyHole.h"
 #include "Enemy.h"
-
+#include "Enemy2.h"
+#include "ObjectManager.h"
 EnemyHole::EnemyHole()
 {
 
@@ -27,7 +28,12 @@ void EnemyHole::Initialize()
 
 	Speed = 0.0f;
 
-	EnemyMole = new Enemy;
+	int tmp = rand() % 2;
+	if(tmp == 0)
+		EnemyMole = new Enemy;
+	if(tmp == 1)
+		EnemyMole = new Enemy2;
+
 	EnemyMole->Initialize();
 }
 

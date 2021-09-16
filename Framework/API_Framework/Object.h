@@ -15,7 +15,6 @@ protected:
 	string strKey;
 	bool Active;
 	float Speed;
-
 	// ** 출력 이미지 보관
 	static map<string, Bitmap*> ImageList;
 	//Object* Target;
@@ -71,6 +70,7 @@ public:
 
 	// ** 오브젝트의 활성/비활성 을 [Setting] 하기 위해 만들었지만 현재 사용하지 않고있음. 
 	void SetActive(const bool& _Active) { Active = _Active; }
+
 public:
 	Object();
 	Object(const Transform& _rTransInfo) : TransInfo(_rTransInfo) { }
