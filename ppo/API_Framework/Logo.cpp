@@ -25,7 +25,7 @@ void Logo::Initialize()
 		ObjectFactory<Player>::CreateObject() );
 
 	ImageList["Buffer"] = (new Bitmap)->LoadBmp(L"../Resource/Buffer.bmp");
-	ImageList["BackGround"] = (new Bitmap)->LoadBmp(L"../Resource/BackGround.bmp");
+	ImageList["BackGround"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/main1.bmp");
 	ImageList["Hammer"] = (new Bitmap)->LoadBmp(L"../Resource/Hammer.bmp");
 	ImageList["Mole"] = (new Bitmap)->LoadBmp(L"../Resource/Mole.bmp");
 	ImageList["Mole2"] = (new Bitmap)->LoadBmp(L"../Resource/Mole2.bmp");

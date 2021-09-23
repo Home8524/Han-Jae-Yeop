@@ -54,8 +54,6 @@ void Stage::Initialize()
 
 		EnemyList->push_back(pObj);
 	}
-	*/
-	
 	Vector3 Center = Vector3(WindowsWidth / 2.0f, WindowsHeight / 2.0f);
 
 	for (int y = 0; y < TileHeightCnt; ++y)
@@ -73,6 +71,8 @@ void Stage::Initialize()
 		}
 	}
 
+	*/
+	
 	ImageList = Object::GetImageList();
 }
 
@@ -82,14 +82,13 @@ void Stage::Update()
 
 	if (m_pEffect->GetActive())
 		m_pEffect->Update();
-
 	if (((Player*)m_pPlayer)->GetSwing())
 	{
 		m_pEffect->SetActive(true);
 		m_pEffect->Initialize();
 	}
-
 	/*
+	
 	for (vector<Object*>::iterator iter = EnemyList->begin();
 		iter != EnemyList->end(); )
 	{
@@ -155,32 +154,7 @@ void Stage::Update()
 		else
 			++iter;
 	}
-	if (Cnt == Cnt_max)
-	{
-		Cnt_max = 0;
-		Vector3 Center = Vector3(WindowsWidth / 2.0f, WindowsHeight / 2.0f);
-		for (int y = 0; y < TileHeightCnt; ++y)
-		{
-			for (int x = 0; x < TileWidthCnt; ++x)
-			{
-				int tmp = rand() % 3;
-
-				if (tmp ==1) {
-					
-					Object* pObj = new EnemyHole;
-					pObj->Initialize();
-
-					pObj->SetPosition(
-						(Center.x - ((TileWidthCnt / 2) * pObj->GetScale().x)) + pObj->GetScale().x * x,
-						(Center.y - ((TileHeightCnt / 2) * pObj->GetScale().y)) + pObj->GetScale().y * y);
-
-					EnemyList->push_back(pObj);
-					Cnt_max++;
-				}
-			}
-		}
-		Cnt = 0;
-	}
+	
 }
 
 void Stage::Render(HDC _hdc)
