@@ -50,7 +50,7 @@ void Logo::Initialize()
 
 void Logo::Update()
 {
-	if (GetAsyncKeyState('A'))
+	if (GetAsyncKeyState('Z'))
 		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
 }
 

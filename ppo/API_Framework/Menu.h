@@ -4,6 +4,7 @@
 class Object;
 class Menu : public Scene
 {
+	ULONGLONG Time;
 private:
 	Object* MenuBack;
 	map<string, Bitmap*> ImageList;

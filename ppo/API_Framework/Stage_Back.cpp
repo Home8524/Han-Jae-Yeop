@@ -29,7 +29,7 @@ int Stage_Back::Update()
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	//** Start~Quit º±≈√
-	if (Time + 80 < GetTickCount64())
+	if (Time + 60 < GetTickCount64())
 	{
 		Time = GetTickCount64();
 		if (dwKey & KEY_UP && Page_Num!=1)
@@ -55,7 +55,6 @@ int Stage_Back::Update()
 		strKey = "BackGround3";
 		break;
 	case 4:
-
 		strKey = "BackGround4";
 		break;
 	case 5:
