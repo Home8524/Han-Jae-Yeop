@@ -79,6 +79,7 @@ void Stage::Initialize()
 void Stage::Update()
 {
 	m_pPlayer->Update();
+	State_Back->Update();
 
 	if (m_pEffect->GetActive())
 		m_pEffect->Update();

@@ -1,8 +1,12 @@
 #pragma once
 #include "Scene.h"
 
+class Object;
 class Menu : public Scene
 {
+private:
+	Object* MenuBack;
+	map<string, Bitmap*> ImageList;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

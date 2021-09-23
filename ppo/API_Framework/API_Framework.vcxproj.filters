@@ -103,6 +103,12 @@
     <Filter Include="소스 파일\02. Object\Enemy2">
       <UniqueIdentifier>{0e3adf68-2d93-4b76-ae1c-4f9e2f0921e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Logo_Back">
+      <UniqueIdentifier>{45522862-c2b8-43d3-aad0-c0f977e8f984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Menu_Back">
+      <UniqueIdentifier>{ed4e16e5-2726-4b2a-a685-db959bf0604a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -210,6 +216,12 @@
     <ClInclude Include="Enemy2.h">
       <Filter>소스 파일\02. Object\Enemy2</Filter>
     </ClInclude>
+    <ClInclude Include="Logo_Back.h">
+      <Filter>소스 파일\02. Object\Logo_Back</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu_Back.h">
+      <Filter>소스 파일\02. Object\Menu_Back</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -263,9 +275,6 @@
     <ClCompile Include="Bitmap.cpp">
       <Filter>소스 파일\99. Manager\RenderManager\Bitmap</Filter>
     </ClCompile>
-    <ClCompile Include="Stage_Back.cpp">
-      <Filter>소스 파일\02. Object\Stage_Back</Filter>
-    </ClCompile>
     <ClCompile Include="HammerEffect.cpp">
       <Filter>소스 파일\02. Object\HammerEffect</Filter>
     </ClCompile>
@@ -286,6 +295,15 @@
     </ClCompile>
     <ClCompile Include="Enemy2.cpp">
       <Filter>소스 파일\02. Object\Enemy2</Filter>
+    </ClCompile>
+    <ClCompile Include="Logo_Back.cpp">
+      <Filter>소스 파일\02. Object\Logo_Back</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Back.cpp">
+      <Filter>소스 파일\02. Object\Stage_Back</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu_Back.cpp">
+      <Filter>소스 파일\02. Object\Menu_Back</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

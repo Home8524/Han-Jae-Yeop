@@ -1,11 +1,7 @@
-#pragma once
 #include "Object.h"
 
-class Stage_Back : public Object
+class Logo_Back : public Object
 {
-public:
-	int Page_Num;
-	ULONGLONG Time;
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;
@@ -14,9 +10,9 @@ public:
 
 	virtual Object* Clone()
 	{
-		return new Stage_Back(*this);
+		return new Logo_Back(*this);
 	};
 public:
-	Stage_Back();
-	virtual ~Stage_Back();
+	Logo_Back();
+	virtual ~Logo_Back();
 };
