@@ -23,7 +23,7 @@ void Menu::Initialize()
 void Menu::Update()
 {
 
-	if (GetAsyncKeyState('Z') && Time + 60 < GetTickCount64()) {
+	if (GetAsyncKeyState('Z') && Time + 100 < GetTickCount64()) {
 
 		SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
 		Time = GetTickCount64();

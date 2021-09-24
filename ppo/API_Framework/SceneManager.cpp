@@ -3,7 +3,7 @@
 #include "Logo.h"
 #include "Menu.h"
 #include "Stage.h"
-
+#include "Level.h"
 SceneManager* SceneManager::Instance = nullptr;
 
 
@@ -23,6 +23,10 @@ void SceneManager::SetScene(SCENEID _SceneID)
 
 	case SCENEID::STAGE:
 		pSceneState = new Stage;
+		break;
+	
+	case SCENEID::LEVEL:
+		pSceneState = new Level;
 		break;
 
 	case SCENEID::EXIT:

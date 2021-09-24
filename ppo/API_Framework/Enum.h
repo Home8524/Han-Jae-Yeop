@@ -5,5 +5,6 @@ enum class SCENEID
 	LOGO ,
 	MENU ,
 	STAGE,
+	LEVEL,
 	EXIT ,
 };

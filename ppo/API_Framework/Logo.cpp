@@ -25,7 +25,7 @@ void Logo::Initialize()
 		ObjectFactory<Player>::CreateObject() );
 
 	ImageList["Buffer"] = (new Bitmap)->LoadBmp(L"../Resource/Buffer.bmp");
-
+#pragma region start~quit 선택용
 	ImageList["BackGround1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/main1.bmp");
 	ImageList["BackGround2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/main2.bmp");
 	ImageList["BackGround3"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/main3.bmp");
@@ -33,10 +33,19 @@ void Logo::Initialize()
 	ImageList["BackGround5"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/main5.bmp");
 	ImageList["BackGround6"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/main6.bmp");
 	ImageList["BackGround7"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/main7.bmp");
+#pragma endregion
 
+#pragma region 백그라운드 모음
 	ImageList["LBackGround"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/logo.bmp");
 	ImageList["Menu"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/menu.bmp");
-
+	ImageList["Level"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/select00.bmp");
+#pragma endregion
+	
+#pragma region 난이도 선택
+	ImageList["Select0"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/select05.bmp");
+	ImageList["Select1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/select01.bmp");
+	ImageList["Select2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/select02.bmp");
+#pragma endregion
 	ImageList["Hammer"] = (new Bitmap)->LoadBmp(L"../Resource/Hammer.bmp");
 	ImageList["Mole"] = (new Bitmap)->LoadBmp(L"../Resource/Mole.bmp");
 	ImageList["Mole2"] = (new Bitmap)->LoadBmp(L"../Resource/Mole2.bmp");

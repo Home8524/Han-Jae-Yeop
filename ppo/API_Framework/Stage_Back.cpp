@@ -69,7 +69,7 @@ int Stage_Back::Update()
 	default:
 		break;
 	}
-	return 0;
+	return Page_Num;
 }
 
 void Stage_Back::Render(HDC _hdc)

@@ -156,6 +156,8 @@
     <ClInclude Include="HammerEffect.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="Level_Back.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="Logo_Back.h" />
     <ClInclude Include="MainUpdate.h" />
@@ -189,6 +191,8 @@
     <ClCompile Include="EnemyHole.cpp" />
     <ClCompile Include="HammerEffect.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="Level_Back.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="Logo_Back.cpp" />
     <ClCompile Include="MainUpdate.cpp" />
