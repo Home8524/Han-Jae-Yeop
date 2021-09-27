@@ -3,6 +3,9 @@
 class Level_Back : public Object
 {
 public:
+	int Page_Num;
+	ULONGLONG Time;
+public:
 	virtual void Initialize()override;
 	virtual int Update()override;
 	virtual void Render(HDC _hdc)override;

@@ -18,13 +18,49 @@ void Level_Back::Initialize()
 	TransInfo.Direction = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(0.0f, 0.0f);
 
-	strKey = "Level";
+	strKey = "Select1";
 	Active = false;
+	Time = GetTickCount64();
+	Page_Num = 1;
 }
 
 int Level_Back::Update()
 {
-	return 0;
+	DWORD dwKey = InputManager::GetInstance()->GetKey();
+
+	//** Start~Quit 선택
+	if (Time + 80 < GetTickCount64())
+	{
+		Time = GetTickCount64();
+		if (dwKey & KEY_UP && Page_Num != 1)
+		{
+			Page_Num--;
+		}
+		else if (dwKey & KEY_DOWN && Page_Num != 4)
+		{
+			Page_Num++;
+		}
+	}
+
+
+	switch (Page_Num)
+	{
+	case 1:
+		strKey = "Select1";
+		break;
+	case 2:
+		strKey = "Select2";
+		break;
+	case 3:
+		strKey = "Select3";
+		break;
+	case 4:
+		strKey = "Select4";
+		break;
+	default:
+		break;
+	}
+	return Page_Num;
 }
 
 void Level_Back::Render(HDC _hdc)
@@ -39,38 +75,7 @@ void Level_Back::Render(HDC _hdc)
 		SRCCOPY);
 
 	//난이도 선택
-	TransparentBlt(_hdc, // ** 최종 출력 위치
-		200,
-		0,
-		259,
-		55,
-		ImageList["Select0"]->GetMemDC(),
-		0, 0,
-		259,
-		55,
-		RGB(255, 0, 255));
-
-	TransparentBlt(_hdc, // ** 최종 출력 위치
-		200,
-		100,
-		259,
-		97,
-		ImageList["Select1"]->GetMemDC(),
-		0, 0,
-		259,
-		97,
-		RGB(255, 0, 255));
-
-	TransparentBlt(_hdc, // ** 최종 출력 위치
-		200,
-		250,
-		259,
-		102,
-		ImageList["Select2"]->GetMemDC(),
-		0, 0,
-		259,
-		102,
-		RGB(255, 0, 255));
+	
 
 }
 

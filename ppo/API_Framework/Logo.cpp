@@ -42,9 +42,10 @@ void Logo::Initialize()
 #pragma endregion
 	
 #pragma region 난이도 선택
-	ImageList["Select0"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/select05.bmp");
 	ImageList["Select1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/select01.bmp");
 	ImageList["Select2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/select02.bmp");
+	ImageList["Select3"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/select03.bmp");
+	ImageList["Select4"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/select04.bmp");
 #pragma endregion
 	ImageList["Hammer"] = (new Bitmap)->LoadBmp(L"../Resource/Hammer.bmp");
 	ImageList["Mole"] = (new Bitmap)->LoadBmp(L"../Resource/Mole.bmp");
