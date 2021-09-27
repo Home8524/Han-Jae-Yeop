@@ -175,6 +175,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Stage.h" />
+    <ClInclude Include="Stage1.h" />
     <ClInclude Include="Stage_Back.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
@@ -208,6 +209,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="Stage1.cpp" />
     <ClCompile Include="Stage_Back.cpp" />
   </ItemGroup>
   <ItemGroup>
