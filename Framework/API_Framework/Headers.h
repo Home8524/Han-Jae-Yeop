@@ -17,7 +17,8 @@ using namespace std;
 
 #pragma comment(lib, "msimg32.lib")
 
-
+#include<Vfw.h>
+#pragma comment(lib,"vfw32.lib")
 extern HWND g_hWnd;
 
 

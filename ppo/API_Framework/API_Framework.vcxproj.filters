@@ -121,6 +121,9 @@
     <Filter Include="소스 파일\01. Scene\Stage1">
       <UniqueIdentifier>{38500472-221f-4685-a2b8-525b813f8e9f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\BackGround\Stage1_Back">
+      <UniqueIdentifier>{c5ad5048-aeec-4cc5-b111-dedcacb8c7d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -243,6 +246,9 @@
     <ClInclude Include="Stage1.h">
       <Filter>소스 파일\01. Scene\Stage1</Filter>
     </ClInclude>
+    <ClInclude Include="Stage1_Back.h">
+      <Filter>소스 파일\02. Object\BackGround\Stage1_Back</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -334,6 +340,9 @@
     </ClCompile>
     <ClCompile Include="Stage1.cpp">
       <Filter>소스 파일\01. Scene\Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1_Back.cpp">
+      <Filter>소스 파일\02. Object\BackGround\Stage1_Back</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

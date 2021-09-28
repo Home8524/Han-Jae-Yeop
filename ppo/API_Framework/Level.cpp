@@ -18,12 +18,19 @@ void Level::Initialize()
 	State_Back->Initialize();
 
 	ImageList = Object::GetImageList();
+	Time = GetTickCount64();
 }
 
 void Level::Update()
 {
-	State_Back->Update();
+	int tmp;
+	tmp = State_Back->Update();
+	
+	if (GetAsyncKeyState('Z') && tmp == 1 && Time + 100 < GetTickCount64()) {
 
+		SceneManager::GetInstance()->SetScene(SCENEID::STAGE1);
+		Time = GetTickCount64();
+	}
 }
 
 void Level::Render(HDC _hdc)

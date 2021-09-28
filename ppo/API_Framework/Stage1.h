@@ -10,6 +10,10 @@ private:
 	map<string, Bitmap*> ImageList;
 	ULONGLONG Time;
 
+	Object* m_pPlayer;
+	//vector<Object*>* EnemyList;
+	vector<Object*>* BulletList;
+
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

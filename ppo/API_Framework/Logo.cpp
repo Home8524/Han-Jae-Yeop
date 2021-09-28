@@ -39,6 +39,7 @@ void Logo::Initialize()
 	ImageList["LBackGround"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/logo.bmp");
 	ImageList["Menu"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/menu.bmp");
 	ImageList["Level"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/select00.bmp");
+	ImageList["Stage1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/stg1bg.bmp");
 #pragma endregion
 	
 #pragma region 난이도 선택
@@ -53,6 +54,10 @@ void Logo::Initialize()
 	ImageList["Hole"] = (new Bitmap)->LoadBmp(L"../Resource/Hole.bmp");
 	ImageList["Effect"] = (new Bitmap)->LoadBmp(L"../Resource/Effect.bmp");
 
+	//1정면 2우 3좌
+	ImageList["Player1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/player1.bmp");
+	ImageList["Player2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/player2.bmp");
+	ImageList["Player3"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/player3.bmp");
 	LogoBack = new Logo_Back;
 	LogoBack->Initialize();
 	Object::SetImageList(ImageList);

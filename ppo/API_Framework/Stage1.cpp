@@ -2,7 +2,8 @@
 #include "SceneManager.h"
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
-#include "Stage_Back.h"
+#include "Stage1_Back.h"
+#include "Player.h"
 
 
 Stage1::Stage1()
@@ -17,7 +18,7 @@ Stage1::~Stage1()
 
 void Stage1::Initialize()
 {
-	State_Back = new Stage_Back;
+	State_Back = new Stage1_Back;
 	State_Back->Initialize();
 
 	/*
@@ -56,6 +57,8 @@ void Stage1::Initialize()
 	*/
 	Time = GetTickCount64();
 	ImageList = Object::GetImageList();
+	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
+	BulletList = ObjectManager::GetInstance()->GetBulletList();
 }
 
 void Stage1::Update()
@@ -63,6 +66,7 @@ void Stage1::Update()
 	int tmp;
 	tmp = State_Back->Update();
 
+	m_pPlayer->Update();
 
 	if (GetAsyncKeyState('Z') && tmp == 1 && Time + 100 < GetTickCount64()) {
 
@@ -77,6 +81,7 @@ void Stage1::Update()
 void Stage1::Render(HDC _hdc)
 {
 	State_Back->Render(ImageList["Buffer"]->GetMemDC());
+	m_pPlayer->Render(ImageList["Buffer"]->GetMemDC());
 
 	BitBlt(_hdc,
 		0, 0,
