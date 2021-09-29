@@ -83,7 +83,7 @@ int Player::Update()
 		Collider.Position.x += 2;
 	}
 	
-	if (GetAsyncKeyState('A'))
+	if (GetAsyncKeyState('Z'))
 	{
 		BulletList->push_back(CreateBullet<NormalBullet>());
 	}

@@ -74,7 +74,9 @@ void Stage1::Update()
 		Time = GetTickCount64();
 	}
 
-
+	for (vector<Object*>::iterator iter = BulletList->begin();
+		iter != BulletList->end(); ++iter)
+		(*iter)->Update();
 
 }
 
@@ -82,6 +84,9 @@ void Stage1::Render(HDC _hdc)
 {
 	State_Back->Render(ImageList["Buffer"]->GetMemDC());
 	m_pPlayer->Render(ImageList["Buffer"]->GetMemDC());
+	for (vector<Object*>::iterator iter = BulletList->begin();
+		iter != BulletList->end(); ++iter)
+		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
 
 	BitBlt(_hdc,
 		0, 0,

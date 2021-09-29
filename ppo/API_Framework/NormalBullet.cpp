@@ -1,6 +1,5 @@
 #include "NormalBullet.h"
 #include "Object.h"
-
 NormalBullet::NormalBullet()
 {
 
@@ -15,8 +14,7 @@ NormalBullet::~NormalBullet()
 void NormalBullet::Initialize()
 {
 	Speed = 3.0f;
-
-	DrawKey = "NormalBullet";
+	DrawKey = "Bullet1";
 }
 
 int NormalBullet::Update(Transform& _rTransInfo)
@@ -33,24 +31,27 @@ int NormalBullet::Update(Transform& _rTransInfo)
 
 void NormalBullet::Render(HDC _hdc)
 {
+	
 	/*
 	TransparentBlt(_hdc, // ** 최종 출력 위치
-		int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
-		int(TransInfo.Position.y + (TransInfo.Scale.x / 2) - Offset.y - 50),
-		int(TransInfo.Scale.x),
-		int(Offset.y),
-		ImageList[Drawkey]->GetMemDC(),
-		0, 0,
-		int(TransInfo.Scale.x),
-		int(Offset.y),
+		4 + int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
+		- 30 + int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
+		17,
+		16,
+		ImageList[DrawKey]->GetMemDC(),
+		0,
+		0,
+		17,
+		16,
 		RGB(255, 0, 255));
 	*/
+	
 
 	Ellipse(_hdc,
-		int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
-		int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
-		int(RealObject->GetPosition().x + (RealObject->GetScale().x / 2)),
-		int(RealObject->GetPosition().y + (RealObject->GetScale().y / 2)));
+		4+int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
+		-30+int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
+		4+int(RealObject->GetPosition().x + (RealObject->GetScale().x / 2)),
+		-30+int(RealObject->GetPosition().y + (RealObject->GetScale().y / 2)));
 }
 
 void NormalBullet::Release()
