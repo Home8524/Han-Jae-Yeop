@@ -41,7 +41,7 @@ void Player::Initialize()
 	JumpTime = 0.0f;
 
 	Offset = Vector3(5.0f, -12.0f);
-
+	Time = GetTickCount64();
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
 }
 
@@ -85,7 +85,11 @@ int Player::Update()
 	
 	if (GetAsyncKeyState('Z'))
 	{
+		if(Time+60<GetTickCount64()){
+		Object::SetImageList(ImageList);
 		BulletList->push_back(CreateBullet<NormalBullet>());
+		Time = GetTickCount64();
+		}
 	}
 
 	

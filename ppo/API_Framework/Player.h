@@ -10,7 +10,7 @@ private:
 	float OldPositionY;
 	float JumpTime;
 	int Frame;
-
+	ULONGLONG Time;
 	vector<Object*>* BulletList;
 public:
 	virtual void Initialize()override;

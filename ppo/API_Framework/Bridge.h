@@ -1,8 +1,7 @@
 #pragma once
 #include "Headers.h"
-
 class Object;
-class Bridge
+class Bridge 
 {
 protected:
 	string DrawKey;
