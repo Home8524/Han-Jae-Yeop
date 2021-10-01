@@ -12,6 +12,7 @@ protected:
 	Transform Collider;
 	Vector3 Offset;
 
+	int HP;
 	string strKey;
 	bool Active;
 	float Speed;
@@ -36,6 +37,8 @@ public:
 	// ** 이미지를 출력하는데 사용하는 Key 값을 out
 	string GetKey() const { return strKey; }
 
+	void SetHp(int& _hp) { HP = _hp; }
+	int GetHp() { return HP; }
 	// ** 좌표를 Setting (Vector3)
 	void SetPosition(Vector3 _position) { TransInfo.Position = _position; }
 

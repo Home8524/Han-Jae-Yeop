@@ -11,9 +11,9 @@ private:
 	ULONGLONG Time;
 
 	Object* m_pPlayer;
-	//vector<Object*>* EnemyList;
+	vector<Object*>* EnemyList;
 	vector<Object*>* BulletList;
-
+	vector<Object*>* EnemyBulletList;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;
