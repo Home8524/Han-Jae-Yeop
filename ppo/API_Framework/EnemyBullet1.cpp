@@ -14,7 +14,7 @@ EnemyBullet1::~EnemyBullet1()
 void EnemyBullet1::Initialize()
 {
 	Speed = 3.0f;
-	DrawKey = "Bullet1";
+	DrawKey = "EnemyBullet1";
 
 	ImageList = Object::GetImageList();
 }
@@ -36,14 +36,14 @@ void EnemyBullet1::Render(HDC _hdc)
 
 
 	TransparentBlt(_hdc, // ** 최종 출력 위치
-		3 + int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
-		80 + int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
-		17,
+		int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
+		int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
+		16,
 		16,
 		ImageList[DrawKey]->GetMemDC(),
 		0,
 		0,
-		17,
+		16,
 		16,
 		RGB(255, 0, 255));
 

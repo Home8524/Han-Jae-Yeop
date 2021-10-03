@@ -16,21 +16,22 @@ Enemy::~Enemy()
 void Enemy::Initialize()
 {
 	TransInfo.Position = Vector3(0.0f, 0.0f);
-	TransInfo.Scale = Vector3(149.0f, 124.0f);
+	TransInfo.Scale = Vector3(32.0f, 36.0f);
 
 	Collider.Position = Vector3(0.0f, 0.0f);
-	Collider.Scale = Vector3(100.0f, 100.0f);
+	Collider.Scale = Vector3(32.0f, 36.0f);
 
-	Offset = Vector3(149.0f, 94.0f);
+	Offset = Vector3(32.0f, 36.0f);
 
 	Active = false;
-	strKey = "Mole";
+	strKey = "Enemy1";
 	HP = 10;
 	SetHp(HP);
 	Speed = 1.5f;
 	BulletList = ObjectManager::GetInstance()->GetEnemyBulletList();
 	Time = GetTickCount64();
 	Time2 = GetTickCount64();
+	Frame = rand() % 8;
 }
 
 int Enemy::Update()
@@ -39,7 +40,7 @@ int Enemy::Update()
 	if( !(Offset.y >= 94) )
 		Offset.y += 2.5f;
 	*/
-	if(Time+5000>GetTickCount64())
+	if(Time+7000>GetTickCount64()||TransInfo.Position.y<140)
 	TransInfo.Position.y += 0.5f;
 	else
 	{
@@ -61,7 +62,7 @@ void Enemy::Render(HDC _hdc)
 		int(TransInfo.Scale.x),
 		int(Offset.y),
 		ImageList[strKey]->GetMemDC(),
-		0, 0,
+		int(TransInfo.Scale.x)*Frame, 0,
 		int(TransInfo.Scale.x),
 		int(Offset.y),
 		RGB(255, 0, 255));

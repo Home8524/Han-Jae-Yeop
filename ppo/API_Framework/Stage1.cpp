@@ -24,14 +24,14 @@ void Stage1::Initialize()
 
 	EnemyList = ObjectManager::GetInstance()->GetEnemyList();
 	// ** Àû »ý¼º
-	for (int i = 0; i < 8; ++i)
+	for (int i = 0; i < 12; ++i)
 	{
 		Object* pObj = new Enemy;
 		pObj->Initialize();
 
 		Vector3 RandomPos = Vector3(
 			float(rand() % (WindowsWidth - 120) + 60),
-			float(rand()%100+1)*-1);
+			float(rand()%200+1)*-1);
 
 		pObj->SetPosition(RandomPos.x, RandomPos.y);
 		pObj->SetColliderPosition(RandomPos.x, RandomPos.y);
