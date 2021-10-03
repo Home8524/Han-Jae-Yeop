@@ -25,6 +25,7 @@ private:
 	list<Object*> EnableList;
 	vector<Object*> EnemyList;
 	vector<Object*> BulletList;
+	vector<Object*> EnemyBulletList;
 	map<string, list<Object*>> DisableList;
 
 public:
@@ -66,7 +67,7 @@ public:
 	
 	vector<Object*>* GetBulletList() { return &BulletList; }
 	vector<Object*>* GetEnemyList() { return &EnemyList; }
-
+	vector<Object*>* GetEnemyBulletList() { return &EnemyBulletList; }
 	void AddBullet(Vector3 _vPos);
 
 

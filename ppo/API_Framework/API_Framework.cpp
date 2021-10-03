@@ -8,6 +8,7 @@
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 #endif
 */
+
 #include "framework.h"
 #include "API_Framework.h"
 #include "MainUpdate.h"
