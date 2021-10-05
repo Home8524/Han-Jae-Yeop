@@ -1,7 +1,7 @@
 #include "Object.h"
 
 map<string, Bitmap*> Object::ImageList;
-
+int Object::MobNum;
 Object::Object()
 {
 

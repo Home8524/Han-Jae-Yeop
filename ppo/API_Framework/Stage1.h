@@ -14,6 +14,9 @@ private:
 	vector<Object*>* EnemyList;
 	vector<Object*>* BulletList;
 	vector<Object*>* EnemyBulletList;
+
+	int MobCnt;
+	int StageCnt;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

@@ -5,6 +5,7 @@
 #include "Stage1_Back.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Enemy2.h"
 #include "CollisionManager.h"
 
 Stage1::Stage1()
@@ -21,16 +22,17 @@ void Stage1::Initialize()
 {
 	State_Back = new Stage1_Back;
 	State_Back->Initialize();
-
+	int a = 0;
+	Object::SetMobNum(a);
 	EnemyList = ObjectManager::GetInstance()->GetEnemyList();
 	// ** 적 생성
-	for (int i = 0; i < 12; ++i)
+	for (int i = 0; i < 8; ++i)
 	{
 		Object* pObj = new Enemy;
 		pObj->Initialize();
 
 		Vector3 RandomPos = Vector3(
-			float(rand() % (WindowsWidth - 120) + 60),
+			float(rand() % (WindowsWidth-120) + 60),
 			float(rand()%200+1)*-1);
 
 		pObj->SetPosition(RandomPos.x, RandomPos.y);
@@ -38,7 +40,9 @@ void Stage1::Initialize()
 
 		EnemyList->push_back(pObj);
 	}
-	
+	MobCnt = 8;
+	//StageCnt = 0~2 ->mob1 , 3~5 -> mob2 6> boss
+	StageCnt = 0;
 	Time = GetTickCount64();
 	ImageList = Object::GetImageList();
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
@@ -65,8 +69,12 @@ void Stage1::Update()
 		(*iter)->Update();
 
 	for (vector<Object*>::iterator iter = EnemyBulletList->begin();
-		iter != EnemyBulletList->end(); ++iter)
-		(*iter)->Update();
+		iter != EnemyBulletList->end();)
+	{
+		int iResult = (*iter)->Update();
+		if (iResult == 1) iter = EnemyBulletList->erase(iter);
+		else ++iter;
+	}
 
 	// ** 총알 리스트의 progress
 	for (vector<Object*>::iterator iter = BulletList->begin();
@@ -91,6 +99,7 @@ void Stage1::Update()
 				{
 				// ** 몬스터 삭제
 				iter2 = EnemyList->erase(iter2);
+				MobCnt--;
 
 				}
 				// ** 삭제할 오브젝트로 지정한뒤
@@ -109,6 +118,49 @@ void Stage1::Update()
 			iter = BulletList->erase(iter);
 		else
 			++iter;
+	}
+
+	if (MobCnt == 0)
+	{
+		if (StageCnt >= 0 && StageCnt < 3)
+		{
+			for (int i = 0; i < 8; ++i)
+			{
+				Object* pObj = new Enemy;
+				pObj->Initialize();
+
+				Vector3 RandomPos = Vector3(
+					float(rand() % (WindowsWidth-120) + 60),
+					float(rand() % 200 + 1) * -1);
+
+				pObj->SetPosition(RandomPos.x, RandomPos.y);
+				pObj->SetColliderPosition(RandomPos.x, RandomPos.y);
+
+				EnemyList->push_back(pObj);
+			}
+		}
+		else if (StageCnt >= 3 && StageCnt < 6)
+		{
+			int a = 1;
+			Object::SetMobNum(a);
+			for (int i = 0; i < 8; ++i)
+			{
+				Object* pObj = new Enemy2;
+				pObj->Initialize();
+
+				Vector3 RandomPos = Vector3(
+					float(rand() % (WindowsWidth+100)),
+					float(rand() % 200 + 50));
+
+				pObj->SetPosition(RandomPos.x, RandomPos.y);
+				pObj->SetColliderPosition(RandomPos.x, RandomPos.y);
+
+				EnemyList->push_back(pObj);
+			}
+		}
+		MobCnt = 8;
+
+		StageCnt++;
 	}
 }
 

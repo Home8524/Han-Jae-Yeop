@@ -2,6 +2,10 @@
 #include "ObjectManager.h"
 #include "Bullet.h"
 #include "EnemyBullet1.h"
+#include "EnemyBullet2.h"
+#include "EnemyBullet3.h"
+#include "EnemyBullet4.h"
+#include "EnemyBullet5.h"
 #include "ObjectFactory.h"
 Enemy::Enemy()
 {
@@ -25,7 +29,7 @@ void Enemy::Initialize()
 
 	Active = false;
 	strKey = "Enemy1";
-	HP = 10;
+	HP = 5;
 	SetHp(HP);
 	Speed = 1.5f;
 	BulletList = ObjectManager::GetInstance()->GetEnemyBulletList();
@@ -40,14 +44,18 @@ int Enemy::Update()
 	if( !(Offset.y >= 94) )
 		Offset.y += 2.5f;
 	*/
-	if(Time+7000>GetTickCount64()||TransInfo.Position.y<140)
-	TransInfo.Position.y += 0.5f;
+	if(Time+5000>GetTickCount64())
+	TransInfo.Position.y += 1.0f;
 	else
 	{
-		if (Time2 + 500 < GetTickCount64())
+		if (Time2 + 1000 < GetTickCount64())
 		{
 			Object::SetImageList(ImageList);
 			BulletList->push_back(CreateBullet<EnemyBullet1>());
+			BulletList->push_back(CreateBullet<EnemyBullet2>());
+			BulletList->push_back(CreateBullet<EnemyBullet3>());
+			BulletList->push_back(CreateBullet<EnemyBullet4>());
+			BulletList->push_back(CreateBullet<EnemyBullet5>());
 			Time2 = GetTickCount64();
 		}
 	}
@@ -77,8 +85,10 @@ template <typename T>
 Object* Enemy::CreateBullet()
 {
 	Bridge* pBridge = new T;
-
-	Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge);
+	Transform tmp;
+	tmp.Position.x = TransInfo.Position.x;
+	tmp.Position.y = TransInfo.Position.y - 60;
+	Object* pBullet = ObjectFactory<Bullet>::CreateObject(tmp.Position, pBridge);
 
 	return pBullet;
 }

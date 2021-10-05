@@ -1,24 +1,24 @@
-#include "EnemyBullet1.h"
+#include "EnemyBullet2.h"
 #include "Object.h"
-EnemyBullet1::EnemyBullet1()
+EnemyBullet2::EnemyBullet2()
 {
 
 }
 
-EnemyBullet1::~EnemyBullet1()
+EnemyBullet2::~EnemyBullet2()
 {
 
 }
 
 
-void EnemyBullet1::Initialize()
+void EnemyBullet2::Initialize()
 {
 	Speed = 2.0f;
 	DrawKey = "EnemyBullet1";
 	ImageList = Object::GetImageList();
 }
 
-int EnemyBullet1::Update(Transform& _rTransInfo)
+int EnemyBullet2::Update(Transform& _rTransInfo)
 {
 	int tmp = Object::GetMobNum();
 	if (tmp == 0)
@@ -29,18 +29,18 @@ int EnemyBullet1::Update(Transform& _rTransInfo)
 	{
 		DrawKey = "EnemyBullet2";
 	}
-	_rTransInfo.Position.x += _rTransInfo.Direction.x * Speed*-1;
-	_rTransInfo.Position.y += _rTransInfo.Direction.y * Speed*-1;
+	_rTransInfo.Position.x += 1.0f * Speed * -1;
+	//_rTransInfo.Position.y += _rTransInfo.Direction.y * Speed * -1;
 
 	if (_rTransInfo.Position.x >= (WindowsWidth - 100))
 		return 1;
-	else if (_rTransInfo.Position.y >= WindowsHeight)
+	else if(_rTransInfo.Position.y>=WindowsHeight)
 		return 1;
 	return 0;
 }
 
 
-void EnemyBullet1::Render(HDC _hdc)
+void EnemyBullet2::Render(HDC _hdc)
 {
 
 
@@ -58,7 +58,7 @@ void EnemyBullet1::Render(HDC _hdc)
 
 }
 
-void EnemyBullet1::Release()
+void EnemyBullet2::Release()
 {
 
 }

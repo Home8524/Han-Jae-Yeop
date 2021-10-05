@@ -18,7 +18,7 @@ protected:
 	float Speed;
 	// ** 출력 이미지 보관
 	static map<string, Bitmap*> ImageList;
-	//Object* Target;
+	static int MobNum;
 
 public:
 	virtual void Initialize()PURE;
@@ -39,6 +39,9 @@ public:
 
 	void SetHp(int& _hp) { HP = _hp; }
 	int GetHp() { return HP; }
+
+	static void SetMobNum(int& _mobnum) { MobNum = _mobnum; }
+	static int GetMobNum() { return MobNum; }
 	// ** 좌표를 Setting (Vector3)
 	void SetPosition(Vector3 _position) { TransInfo.Position = _position; }
 

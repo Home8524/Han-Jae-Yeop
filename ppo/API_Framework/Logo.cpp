@@ -61,9 +61,11 @@ void Logo::Initialize()
 
 	//Enemy
 	ImageList["Enemy1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/enemy1.bmp");
+	ImageList["Enemy2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/enemy2.bmp");
 
 	ImageList["Bullet1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/bullet01.bmp");
 	ImageList["EnemyBullet1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/enemybullet1.bmp");
+	ImageList["EnemyBullet2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/enemybullet2.bmp");
 	LogoBack = new Logo_Back;
 	LogoBack->Initialize();
 	Object::SetImageList(ImageList);
