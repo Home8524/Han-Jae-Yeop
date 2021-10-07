@@ -14,15 +14,27 @@ BigBullet::~BigBullet()
 
 void BigBullet::Initialize()
 {
-	Speed = 5.0f;
+	Speed = 4.0f;
 
-	DrawKey = "BigBullet";
+	ImageList = Object::GetImageList();
+	DrawKey = "BossBullet1";
 }
 
 int BigBullet::Update(Transform& _rTransInfo)
 {
+	/*
 	_rTransInfo.Position.x -= _rTransInfo.Direction.x * Speed;
 	_rTransInfo.Position.y -= _rTransInfo.Direction.y * Speed;
+	*/
+	if (_rTransInfo.Position.x - RealObject->GetPosition().x > 0)
+		_rTransInfo.Position.x -= 1.0f*Speed;
+	else if(_rTransInfo.Position.x - RealObject->GetPosition().x < 0)
+		_rTransInfo.Position.x += 1.0f * Speed;
+
+	if (_rTransInfo.Position.y - RealObject->GetPosition().y > 0)
+		_rTransInfo.Position.y -= 1.0f * Speed;
+	else if (_rTransInfo.Position.y - RealObject->GetPosition().y < 0)
+		_rTransInfo.Position.y += 1.0f * Speed;
 
 	if (_rTransInfo.Position.x >= (WindowsWidth - 100))
 		return 1;
@@ -33,24 +45,20 @@ int BigBullet::Update(Transform& _rTransInfo)
 
 void BigBullet::Render(HDC _hdc)
 {
-	/*
+	
 	TransparentBlt(_hdc, // ** 최종 출력 위치
-		int(TransInfo.Position.x - (TransInfo.Scale.x / 2)),
-		int(TransInfo.Position.y + (TransInfo.Scale.x / 2) - Offset.y - 50),
-		int(TransInfo.Scale.x),
-		int(Offset.y),
-		ImageList[Drawkey]->GetMemDC(),
-		0, 0,
-		int(TransInfo.Scale.x),
-		int(Offset.y),
-		RGB(255, 0, 255));
-	*/
-
-	Rectangle(_hdc,
 		int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
-		int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
-		int(RealObject->GetPosition().x + (RealObject->GetScale().x / 2)+10),
-		int(RealObject->GetPosition().y + (RealObject->GetScale().y / 2))+10);
+		int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)+10),
+		32,
+		32,
+		ImageList[DrawKey]->GetMemDC(),
+		0,
+		0,
+		32,
+		32,
+		RGB(255, 0, 255));
+
+	
 }
 
 void BigBullet::Release()

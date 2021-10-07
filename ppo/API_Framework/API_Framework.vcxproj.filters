@@ -127,6 +127,9 @@
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\EnemyBullet">
       <UniqueIdentifier>{763dfa3c-fb80-4036-8f79-aca484845483}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Boss">
+      <UniqueIdentifier>{71d93b93-0d46-4075-94bb-3fda72341be0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -267,6 +270,9 @@
     <ClInclude Include="EnemyBullet5.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\EnemyBullet</Filter>
     </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>소스 파일\02. Object\Boss</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -376,6 +382,9 @@
     </ClCompile>
     <ClCompile Include="EnemyBullet4.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\EnemyBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>소스 파일\02. Object\Boss</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Enemy2.h"
+#include "Boss.h"
 #include "CollisionManager.h"
 
 Stage1::Stage1()
@@ -42,7 +43,7 @@ void Stage1::Initialize()
 	}
 	MobCnt = 8;
 	//StageCnt = 0~2 ->mob1 , 3~5 -> mob2 6> boss
-	StageCnt = 0;
+	StageCnt = 7;
 	Time = GetTickCount64();
 	ImageList = Object::GetImageList();
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
@@ -93,7 +94,6 @@ void Stage1::Update()
 			{
 				int tmp = (*iter2)->GetHp();
 				tmp--;
-				printf("%d", tmp);
 				(*iter2)->SetHp(tmp);
 				if (tmp == 0)
 				{
@@ -122,6 +122,7 @@ void Stage1::Update()
 
 	if (MobCnt == 0)
 	{
+		//mob1
 		if (StageCnt >= 0 && StageCnt < 3)
 		{
 			for (int i = 0; i < 8; ++i)
@@ -139,6 +140,7 @@ void Stage1::Update()
 				EnemyList->push_back(pObj);
 			}
 		}
+		//mob2
 		else if (StageCnt >= 3 && StageCnt < 6)
 		{
 			int a = 1;
@@ -159,7 +161,14 @@ void Stage1::Update()
 			}
 		}
 		MobCnt = 8;
-
+		//boss
+		if (StageCnt ==7)
+		{
+			MobCnt = 1;
+			Object* pObj = new Boss;
+			pObj->Initialize();
+			EnemyList->push_back(pObj);
+		}
 		StageCnt++;
 	}
 }
