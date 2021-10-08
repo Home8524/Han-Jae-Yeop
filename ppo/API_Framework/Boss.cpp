@@ -52,13 +52,13 @@ int Boss::Update()
 	//페이즈1
 	if (HP >= 100 && HP <150)
 	{
-		TransInfo.Position = Vector3(300.0f, 100.0f);
-		if (Time2 + 500 < GetTickCount64())
+		if (Time2 + 1000 < GetTickCount64())
 		{
 			Object::SetImageList(ImageList);
 			BulletList->push_back(CreateBullet<BigBullet>());
 			Time2 = GetTickCount64();
 		}
+		Frame = 200;
 	}
 	//기본패턴
 	else if (Time + 1000 > GetTickCount64())

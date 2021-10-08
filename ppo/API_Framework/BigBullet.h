@@ -4,6 +4,9 @@ class BigBullet : public BulletBridge
 {
 public:
 	map<string, Bitmap*> ImageList;
+	Object* Player;
+	Transform Tmp;
+	Object* Target;
 public:
 	virtual void Initialize()override;
 	virtual int Update(Transform& _rTransInfo)override;
