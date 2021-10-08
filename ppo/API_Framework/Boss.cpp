@@ -56,6 +56,11 @@ int Boss::Update()
 		{
 			Object::SetImageList(ImageList);
 			BulletList->push_back(CreateBullet<BigBullet>());
+			BulletList->push_back(CreateBullet<EnemyBullet1>());
+			BulletList->push_back(CreateBullet<EnemyBullet2>());
+			BulletList->push_back(CreateBullet<EnemyBullet3>());
+			BulletList->push_back(CreateBullet<EnemyBullet4>());
+			BulletList->push_back(CreateBullet<EnemyBullet5>());
 			Time2 = GetTickCount64();
 		}
 		Frame = 200;

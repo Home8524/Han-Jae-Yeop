@@ -15,7 +15,7 @@ BigBullet::~BigBullet()
 
 void BigBullet::Initialize()
 {
-	Speed = 3.0f;
+	Speed = 2.0f;
 
 	ImageList = Object::GetImageList();
 	DrawKey = "BossBullet1";
@@ -34,12 +34,16 @@ int BigBullet::Update(Transform& _rTransInfo)
 	
 	//_rTransInfo.Position.x += Tmp.Direction.x/30.0f;
 	//_rTransInfo.Position.y -= _rTransInfo.Direction.y * Speed;
-	Target = ObjectManager::GetInstance()->GetTarget(_rTransInfo.Position);
-	if (Target)
+	Vector3 _Pos;
+	_Pos.x = _rTransInfo.Position.x;
+	_Pos.y = _rTransInfo.Position.y;
+	float Tmp = MathManager::GetDistance(_Pos, Player->GetPosition());
+	if (Tmp)
 	{
-		_rTransInfo.Direction = MathManager::GetDirection(_rTransInfo.Position, Target->GetPosition());
-		printf("%.2f\n", _rTransInfo.Direction.x);
-		//_rTransInfo.Position.x += _rTransInfo.Direction.x * Speed;
+		_rTransInfo.Direction = MathManager::GetDirection(_rTransInfo.Position, Player->GetPosition());
+			//printf("%.2f %.2f \n", Player->GetPosition().x, _rTransInfo.Position.x);
+			//printf("방향 %.2f\n", _rTransInfo.Direction.x);
+		_rTransInfo.Position.x += _rTransInfo.Direction.x * Speed;
 		_rTransInfo.Position.y += 1.0f * Speed;
 	}
 
@@ -56,14 +60,14 @@ int BigBullet::Update(Transform& _rTransInfo)
 void BigBullet::Render(HDC _hdc)
 {
 	
-	for (int i = 7; i >0 ; --i)
+	for (int i = 3; i >0 ; --i)
 	{
 		for (int j = i; j > 0; --j)
 		{
 			int tmp = j - 5;
 			TransparentBlt(_hdc, // ** 최종 출력 위치
-				int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)+(tmp*10)+40),
-				int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)+(i*-10)+80),
+				int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)+(tmp*20)+80),
+				int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)+(i*-20)+80),
 				10,
 				10,
 				ImageList[DrawKey]->GetMemDC(),
@@ -73,8 +77,8 @@ void BigBullet::Render(HDC _hdc)
 				32,
 				RGB(255, 0, 255));
 			TransparentBlt(_hdc, // ** 최종 출력 위치
-				int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2) - (tmp * 10)-40),
-				int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2) + (i * -10) + 80),
+				int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2) - (tmp * 20)-80),
+				int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2) + (i * -20) + 80),
 				10,
 				10,
 				ImageList[DrawKey]->GetMemDC(),
