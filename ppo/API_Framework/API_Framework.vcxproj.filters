@@ -130,6 +130,9 @@
     <Filter Include="소스 파일\02. Object\Boss">
       <UniqueIdentifier>{71d93b93-0d46-4075-94bb-3fda72341be0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BossBullet">
+      <UniqueIdentifier>{ffe914ad-65b3-41ff-95c5-c6344a346f06}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -273,6 +276,33 @@
     <ClInclude Include="Boss.h">
       <Filter>소스 파일\02. Object\Boss</Filter>
     </ClInclude>
+    <ClInclude Include="Blt.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBullet1.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBullet2.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBullet3.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBullet4.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBullet5.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBullet6.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBullet7.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBullet8.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -385,6 +415,30 @@
     </ClCompile>
     <ClCompile Include="Boss.cpp">
       <Filter>소스 파일\02. Object\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBullet1.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBullet2.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBullet3.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBullet4.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBullet5.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBullet6.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBullet7.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBullet8.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

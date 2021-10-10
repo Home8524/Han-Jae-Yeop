@@ -68,6 +68,7 @@ void Logo::Initialize()
 	ImageList["EnemyBullet1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/enemybullet1.bmp");
 	ImageList["EnemyBullet2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/enemybullet2.bmp");
 	ImageList["BossBullet1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/bossbullet01.bmp");
+	ImageList["BossBullet2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/bossbullet02.bmp");
 
 	ImageList["BossHP"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/bosshp1.bmp");
 	LogoBack = new Logo_Back;

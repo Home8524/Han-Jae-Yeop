@@ -1,12 +1,7 @@
 #include "Boss.h"
 #include "ObjectManager.h"
 #include "Bullet.h"
-#include "EnemyBullet1.h"
-#include "EnemyBullet2.h"
-#include "EnemyBullet3.h"
-#include "EnemyBullet4.h"
-#include "EnemyBullet5.h"
-#include "BigBullet.h"
+#include "Blt.h"
 #include "ObjectFactory.h"
 Boss::Boss()
 {
@@ -50,7 +45,7 @@ int Boss::Update()
 		Offset.y += 2.5f;
 	*/
 	//ÆäÀÌÁî1
-	if (HP >= 100 && HP <150)
+	if (HP >= 100 && HP <125)
 	{
 		if (Time2 + 1000 < GetTickCount64())
 		{
@@ -61,6 +56,23 @@ int Boss::Update()
 			BulletList->push_back(CreateBullet<EnemyBullet3>());
 			BulletList->push_back(CreateBullet<EnemyBullet4>());
 			BulletList->push_back(CreateBullet<EnemyBullet5>());
+			Time2 = GetTickCount64();
+		}
+		Frame = 200;
+	}
+	else if (HP >= 50 && HP < 75)
+	{
+		if (Time2 + 1000 < GetTickCount64())
+		{
+			Object::SetImageList(ImageList);
+			BulletList->push_back(CreateBullet<BossBullet1>());
+			BulletList->push_back(CreateBullet<BossBullet2>());
+			BulletList->push_back(CreateBullet<BossBullet3>());
+			BulletList->push_back(CreateBullet<BossBullet4>());
+			BulletList->push_back(CreateBullet<BossBullet5>());
+			BulletList->push_back(CreateBullet<BossBullet6>());
+			BulletList->push_back(CreateBullet<BossBullet7>());
+			BulletList->push_back(CreateBullet<BossBullet8>());
 			Time2 = GetTickCount64();
 		}
 		Frame = 200;
