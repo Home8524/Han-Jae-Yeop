@@ -1,29 +1,29 @@
-#include "BossBullet5.h"
+#include "Sbullet2.h"
 #include "Object.h"
-BossBullet5::BossBullet5()
+Sbullet2::Sbullet2()
 {
 
 }
 
-BossBullet5::~BossBullet5()
+Sbullet2::~Sbullet2()
 {
 
 }
 
 
-void BossBullet5::Initialize()
+void Sbullet2::Initialize()
 {
-	Speed = 2.0f;
+	Speed = 3.0f;
 	DrawKey = "BossBullet1";
 	ImageList = Object::GetImageList();
 }
 
-int BossBullet5::Update(Transform& _rTransInfo)
+int Sbullet2::Update(Transform& _rTransInfo)
 {
 
 
-	_rTransInfo.Position.x += 1.0f * Speed;
-	_rTransInfo.Position.y += -0.0f * Speed;
+	_rTransInfo.Position.x += 0.6f * Speed;
+	_rTransInfo.Position.y += -1.0f * Speed;
 
 	if (_rTransInfo.Position.x >= (WindowsWidth - 100) || _rTransInfo.Position.x < 0)
 		return 1;
@@ -33,15 +33,15 @@ int BossBullet5::Update(Transform& _rTransInfo)
 }
 
 
-void BossBullet5::Render(HDC _hdc)
+void Sbullet2::Render(HDC _hdc)
 {
 
 
 	TransparentBlt(_hdc, // ** 최종 출력 위치
-		int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2))-10,
+		int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
 		int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
-		32,
-		32,
+		16,
+		16,
 		ImageList[DrawKey]->GetMemDC(),
 		0,
 		0,
@@ -51,7 +51,7 @@ void BossBullet5::Render(HDC _hdc)
 
 }
 
-void BossBullet5::Release()
+void Sbullet2::Release()
 {
 
 }

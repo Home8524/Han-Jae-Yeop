@@ -6,6 +6,7 @@ public:
 	vector<Object*>* BulletList;
 	ULONGLONG Time;
 	ULONGLONG Time2;
+	ULONGLONG Time3;
 	int Frame;
 	int MoveTerm;
 	int Cnt;

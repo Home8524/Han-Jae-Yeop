@@ -133,6 +133,9 @@
     <Filter Include="소스 파일\02. Object\Bullet\BossBullet">
       <UniqueIdentifier>{ffe914ad-65b3-41ff-95c5-c6344a346f06}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BossBullet2">
+      <UniqueIdentifier>{e24fb49d-5d0e-45d7-85c8-90fb9af826bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -303,6 +306,54 @@
     <ClInclude Include="BossBullet8.h">
       <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
     </ClInclude>
+    <ClInclude Include="Sbullet1.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet2.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet3.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet4.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet5.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet6.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet7.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet8.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet10.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet11.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet12.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet13.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet9.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet14.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet15.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sbullet16.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -439,6 +490,54 @@
     </ClCompile>
     <ClCompile Include="BossBullet8.cpp">
       <Filter>소스 파일\02. Object\Bullet\BossBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet1.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet2.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet3.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet4.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet5.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet6.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet7.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet8.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet9.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet10.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet11.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet12.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet13.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet14.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet15.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sbullet16.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

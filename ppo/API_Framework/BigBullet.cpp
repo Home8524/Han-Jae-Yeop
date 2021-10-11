@@ -15,7 +15,7 @@ BigBullet::~BigBullet()
 
 void BigBullet::Initialize()
 {
-	Speed = 2.0f;
+	Speed = 0.0f;
 
 	ImageList = Object::GetImageList();
 	DrawKey = "BossBullet2";
@@ -33,6 +33,7 @@ void BigBullet::Initialize()
 int BigBullet::Update(Transform& _rTransInfo)
 {
 	
+	if (Speed = 3.0f) Speed += 0.1f;
 	Vector3 _Pos;
 	_Pos = Tmp.Direction;
 	_rTransInfo.Direction = _Pos;

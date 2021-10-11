@@ -38,7 +38,7 @@ void BossBullet2::Render(HDC _hdc)
 
 
 	TransparentBlt(_hdc, // ** 최종 출력 위치
-		int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
+		int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2))-10,
 		int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
 		32,
 		32,

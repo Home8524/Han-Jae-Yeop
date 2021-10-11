@@ -31,6 +31,7 @@ void Boss::Initialize()
 	BulletList = ObjectManager::GetInstance()->GetEnemyBulletList();
 	Time = GetTickCount64();
 	Time2 = GetTickCount64();
+	Time3 = GetTickCount64();
 	Frame = 200;
 	MoveTerm = 5000;
 	Left = true;
@@ -62,9 +63,9 @@ int Boss::Update()
 	}
 	else if (HP >= 50 && HP < 75)
 	{
+		Object::SetImageList(ImageList);
 		if (Time2 + 1000 < GetTickCount64())
 		{
-			Object::SetImageList(ImageList);
 			BulletList->push_back(CreateBullet<BossBullet1>());
 			BulletList->push_back(CreateBullet<BossBullet2>());
 			BulletList->push_back(CreateBullet<BossBullet3>());
@@ -74,6 +75,26 @@ int Boss::Update()
 			BulletList->push_back(CreateBullet<BossBullet7>());
 			BulletList->push_back(CreateBullet<BossBullet8>());
 			Time2 = GetTickCount64();
+		}
+		if (Time3 + 500 < GetTickCount64())
+		{
+			BulletList->push_back(CreateBullet<Sbullet1>());
+			BulletList->push_back(CreateBullet<Sbullet2>());
+			BulletList->push_back(CreateBullet<Sbullet3>());
+			BulletList->push_back(CreateBullet<Sbullet4>());
+			BulletList->push_back(CreateBullet<Sbullet5>());
+			BulletList->push_back(CreateBullet<Sbullet6>());
+			BulletList->push_back(CreateBullet<Sbullet7>());
+			BulletList->push_back(CreateBullet<Sbullet8>());
+			BulletList->push_back(CreateBullet<Sbullet9>());
+			BulletList->push_back(CreateBullet<Sbullet10>());
+			BulletList->push_back(CreateBullet<Sbullet11>());
+			BulletList->push_back(CreateBullet<Sbullet12>());
+			BulletList->push_back(CreateBullet<Sbullet13>());
+			BulletList->push_back(CreateBullet<Sbullet14>());
+			BulletList->push_back(CreateBullet<Sbullet15>());
+			BulletList->push_back(CreateBullet<Sbullet16>());
+			Time3 = GetTickCount64();
 		}
 		Frame = 200;
 	}
