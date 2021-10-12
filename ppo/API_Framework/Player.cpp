@@ -83,7 +83,7 @@ int Player::Update()
 		Collider.Position.x += 2;
 	}
 	
-	if (GetAsyncKeyState('Z'))
+	if (GetAsyncKeyState('X'))
 	{
 		if(Time+60<GetTickCount64()){
 		Object::SetImageList(ImageList);

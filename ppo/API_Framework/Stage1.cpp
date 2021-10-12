@@ -69,12 +69,27 @@ void Stage1::Update()
 		iter != EnemyList->end(); ++iter)
 		(*iter)->Update();
 
+	// ** 총알 리스트의 progress
 	for (vector<Object*>::iterator iter = EnemyBulletList->begin();
-		iter != EnemyBulletList->end();)
+		iter != EnemyBulletList->end(); )
 	{
+		// ** 총알이 화면 밖을 넘어가게 되면 reutrn 1 을 반환 하고, 
+		// ** iResult == 1이면 총알은 삭제됨.
 		int iResult = (*iter)->Update();
-		if (iResult == 1) iter = EnemyBulletList->erase(iter);
-		else ++iter;
+		// ** Enemy 리스트의 progress
+		// ** 충돌 처리
+			if (CollisionManager::EllipseCollision((*iter), m_pPlayer))
+			{
+				
+				iResult = 1;
+			}
+		
+
+		// ** 총알을 삭제하는 구간.
+		if (iResult == 1)
+			iter = EnemyBulletList->erase(iter);
+		else
+			++iter;
 	}
 
 	// ** 총알 리스트의 progress
@@ -84,7 +99,6 @@ void Stage1::Update()
 		// ** 총알이 화면 밖을 넘어가게 되면 reutrn 1 을 반환 하고, 
 		// ** iResult == 1이면 총알은 삭제됨.
 		int iResult = (*iter)->Update();
-
 		// ** Enemy 리스트의 progress
 		for (vector<Object*>::iterator iter2 = EnemyList->begin();
 			iter2 != EnemyList->end(); )

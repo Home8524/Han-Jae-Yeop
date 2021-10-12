@@ -23,9 +23,10 @@ int NormalBullet::Update(Transform& _rTransInfo)
 {
 	_rTransInfo.Position.x += _rTransInfo.Direction.x * Speed;
 	_rTransInfo.Position.y += _rTransInfo.Direction.y * Speed;
-
-	if (_rTransInfo.Position.x >= (WindowsWidth - 100))
+	if (_rTransInfo.Position.y < 0)
 		return 1;
+	
+	
 
 	return 0;
 }

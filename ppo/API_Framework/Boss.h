@@ -7,6 +7,7 @@ public:
 	ULONGLONG Time;
 	ULONGLONG Time2;
 	ULONGLONG Time3;
+	ULONGLONG Time4;
 	int Frame;
 	int MoveTerm;
 	int Cnt;

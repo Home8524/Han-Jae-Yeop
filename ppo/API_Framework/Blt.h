@@ -29,3 +29,4 @@
 #include "Sbullet14.h"
 #include "Sbullet15.h"
 #include "Sbullet16.h"
+#include "Magic.h"

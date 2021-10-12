@@ -32,6 +32,7 @@ void Boss::Initialize()
 	Time = GetTickCount64();
 	Time2 = GetTickCount64();
 	Time3 = GetTickCount64();
+	Time4 = GetTickCount64() - 10000;
 	Frame = 200;
 	MoveTerm = 5000;
 	Left = true;
@@ -95,6 +96,19 @@ int Boss::Update()
 			BulletList->push_back(CreateBullet<Sbullet15>());
 			BulletList->push_back(CreateBullet<Sbullet16>());
 			Time3 = GetTickCount64();
+		}
+		Frame = 200;
+	}
+	else if (HP < 147)
+	{
+		if (TransInfo.Position.x > 320) TransInfo.Position.x -= 2.0f;
+		else if (TransInfo.Position.x < 320) TransInfo.Position.x += 2.0f;
+		else if (TransInfo.Position.x < 330 && TransInfo.Position.x>310) TransInfo.Position.x = 320.0f;
+		if (Time4 + 10000 < GetTickCount64())
+		{
+			Object::SetImageList(ImageList);
+			BulletList->push_back(CreateBullet<Magic>());
+			Time4 = GetTickCount64();
 		}
 		Frame = 200;
 	}
