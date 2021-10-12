@@ -29,7 +29,8 @@ void Bullet::Initialize()
 int Bullet::Update()
 {
 	if (BridgeObject)
-		BridgeObject->Update(TransInfo);
+		if (BridgeObject->Update(TransInfo) == 1)
+			return 1;
 
 	return 0;
 }

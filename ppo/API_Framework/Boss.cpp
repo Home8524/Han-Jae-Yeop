@@ -101,9 +101,9 @@ int Boss::Update()
 	}
 	else if (HP < 147)
 	{
-		if (TransInfo.Position.x > 320) TransInfo.Position.x -= 2.0f;
+		if (TransInfo.Position.x < 330 && TransInfo.Position.x>310) TransInfo.Position.x = 320.0f;
+		else if (TransInfo.Position.x > 320) TransInfo.Position.x -= 2.0f;
 		else if (TransInfo.Position.x < 320) TransInfo.Position.x += 2.0f;
-		else if (TransInfo.Position.x < 330 && TransInfo.Position.x>310) TransInfo.Position.x = 320.0f;
 		if (Time4 + 10000 < GetTickCount64())
 		{
 			Object::SetImageList(ImageList);

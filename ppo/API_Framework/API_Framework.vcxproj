@@ -176,6 +176,7 @@
     <ClInclude Include="Logo.h" />
     <ClInclude Include="Logo_Back.h" />
     <ClInclude Include="Magic.h" />
+    <ClInclude Include="MagicBullet.h" />
     <ClInclude Include="MainUpdate.h" />
     <ClInclude Include="MathManager.h" />
     <ClInclude Include="Menu.h" />
@@ -244,6 +245,7 @@
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="Logo_Back.cpp" />
     <ClCompile Include="Magic.cpp" />
+    <ClCompile Include="MagicBullet.cpp" />
     <ClCompile Include="MainUpdate.cpp" />
     <ClCompile Include="MathManager.cpp" />
     <ClCompile Include="Menu.cpp" />

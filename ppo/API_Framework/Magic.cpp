@@ -40,26 +40,13 @@ int Magic::Update(Transform& _rTransInfo)
 	if (Time + 5000 < GetTickCount64())
 		return 1;
 	
-	_rTransInfo.Position.y += 1.0f * Speed ;
-
 	return 0;
 }
 
 
 void Magic::Render(HDC _hdc)
 {
-	TransparentBlt(_hdc, // ** 최종 출력 위치
-		int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
-		int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
-		16,
-		16,
-		ImageList["EnemyBullet1"]->GetMemDC(),
-		0,
-		0,
-		16,
-		16,
-		RGB(255, 0, 255));
-
+	
 	for (int i = 1; i <8; i++)
 	{
 		if (i == 3) continue;

@@ -360,6 +360,9 @@
     <ClInclude Include="Magic.h">
       <Filter>소스 파일\02. Object\Bullet\BossBullet3</Filter>
     </ClInclude>
+    <ClInclude Include="MagicBullet.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet3</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -546,6 +549,9 @@
       <Filter>소스 파일\02. Object\Bullet\BossBullet2</Filter>
     </ClCompile>
     <ClCompile Include="Magic.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet3</Filter>
+    </ClCompile>
+    <ClCompile Include="MagicBullet.cpp">
       <Filter>소스 파일\02. Object\Bullet\BossBullet3</Filter>
     </ClCompile>
   </ItemGroup>
