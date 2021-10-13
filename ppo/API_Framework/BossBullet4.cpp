@@ -25,7 +25,7 @@ int BossBullet4::Update(Transform& _rTransInfo)
 	_rTransInfo.Position.x += -1.0f * Speed;
 	_rTransInfo.Position.y += -0.0f * Speed;
 
-	if (_rTransInfo.Position.x >= (WindowsWidth - 100) || _rTransInfo.Position.x < 0)
+	if (_rTransInfo.Position.x >= (WindowsWidth) || _rTransInfo.Position.x < 0)
 		return 1;
 	else if (_rTransInfo.Position.y >= WindowsHeight || _rTransInfo.Position.y < 0)
 		return 1;

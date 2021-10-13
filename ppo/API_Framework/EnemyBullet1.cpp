@@ -32,7 +32,7 @@ int EnemyBullet1::Update(Transform& _rTransInfo)
 	_rTransInfo.Position.x += _rTransInfo.Direction.x * Speed*-1;
 	_rTransInfo.Position.y += _rTransInfo.Direction.y * Speed*-1;
 
-	if (_rTransInfo.Position.x >= (WindowsWidth - 100)|| _rTransInfo.Position.x<0)
+	if (_rTransInfo.Position.x >= (WindowsWidth)|| _rTransInfo.Position.x<0)
 		return 1;
 	else if (_rTransInfo.Position.y >= WindowsHeight)
 		return 1;

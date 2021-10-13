@@ -44,14 +44,17 @@ int Enemy2::Update()
 	if( !(Offset.y >= 94) )
 		Offset.y += 2.5f;
 	*/
-	if (Time + 3000 > GetTickCount64())
+	if (Time + 1500 > GetTickCount64())
 	{
-		if (TransInfo.Position.x > WindowsWidth / 2)
+		if (TransInfo.Position.x > 310 && TransInfo.Position.x < 330)
 		{
-			TransInfo.Position.x -= 0.8f;
+		}
+		else if (TransInfo.Position.x > WindowsWidth / 2)
+		{
+			TransInfo.Position.x -= 1.6f;
 		}
 		else
-			TransInfo.Position.x += 0.8f;
+			TransInfo.Position.x += 1.6f;
 	}
 	else
 	{

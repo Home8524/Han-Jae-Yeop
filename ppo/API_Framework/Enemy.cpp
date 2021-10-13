@@ -1,11 +1,7 @@
 #include "Enemy.h"
 #include "ObjectManager.h"
 #include "Bullet.h"
-#include "EnemyBullet1.h"
-#include "EnemyBullet2.h"
-#include "EnemyBullet3.h"
-#include "EnemyBullet4.h"
-#include "EnemyBullet5.h"
+#include "Blt.h"
 #include "ObjectFactory.h"
 Enemy::Enemy()
 {
@@ -44,8 +40,8 @@ int Enemy::Update()
 	if( !(Offset.y >= 94) )
 		Offset.y += 2.5f;
 	*/
-	if(Time+5000>GetTickCount64())
-	TransInfo.Position.y += 1.0f;
+	if(Time+3000>GetTickCount64())
+	TransInfo.Position.y += 1.5f;
 	else
 	{
 		if (Time2 + 1000 < GetTickCount64())

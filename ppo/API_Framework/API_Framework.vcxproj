@@ -165,12 +165,12 @@
     <ClInclude Include="EnemyBullet3.h" />
     <ClInclude Include="EnemyBullet4.h" />
     <ClInclude Include="EnemyBullet5.h" />
-    <ClInclude Include="EnemyHole.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="HammerEffect.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Knife.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Level_Back.h" />
     <ClInclude Include="Logo.h" />
@@ -182,6 +182,8 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Menu_Back.h" />
     <ClInclude Include="NormalBullet.h" />
+    <ClInclude Include="NormalBullet2.h" />
+    <ClInclude Include="NormalBullet3.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectManager.h" />
@@ -237,9 +239,9 @@
     <ClCompile Include="EnemyBullet3.cpp" />
     <ClCompile Include="EnemyBullet4.cpp" />
     <ClCompile Include="EnemyBullet5.cpp" />
-    <ClCompile Include="EnemyHole.cpp" />
-    <ClCompile Include="HammerEffect.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Knife.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Level_Back.cpp" />
     <ClCompile Include="Logo.cpp" />
@@ -251,6 +253,8 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Menu_Back.cpp" />
     <ClCompile Include="NormalBullet.cpp" />
+    <ClCompile Include="NormalBullet2.cpp" />
+    <ClCompile Include="NormalBullet3.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Player.cpp" />

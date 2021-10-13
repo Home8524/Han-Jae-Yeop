@@ -4,8 +4,7 @@
 #include "ObjectFactory.h"
 
 #include "Bullet.h"
-#include "NormalBullet.h"
-#include "BigBullet.h"
+#include "Blt.h"
 
 Player::Player()
 {
@@ -34,6 +33,8 @@ void Player::Initialize()
 
 	Drop = false;
 	bJump = false;
+	Power = 1;
+	SetPower(Power);
 
 	Frame = 0;
 	OldPositionY = 0.0f;
@@ -88,6 +89,10 @@ int Player::Update()
 		if(Time+60<GetTickCount64()){
 		Object::SetImageList(ImageList);
 		BulletList->push_back(CreateBullet<NormalBullet>());
+		if(Power>5)
+			BulletList->push_back(CreateBullet<NormalBullet2>());
+		if(Power>10)
+			BulletList->push_back(CreateBullet<NormalBullet3>());
 		Time = GetTickCount64();
 		}
 	}

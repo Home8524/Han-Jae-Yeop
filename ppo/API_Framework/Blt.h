@@ -30,3 +30,7 @@
 #include "Sbullet15.h"
 #include "Sbullet16.h"
 #include "Magic.h"
+#include "Knife.h"
+#include "NormalBullet.h"
+#include "NormalBullet2.h"
+#include "NormalBullet3.h"

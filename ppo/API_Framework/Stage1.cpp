@@ -5,6 +5,7 @@
 #include "Stage1_Back.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Item.h"
 #include "Enemy2.h"
 #include "Boss.h"
 #include "CollisionManager.h"
@@ -43,12 +44,13 @@ void Stage1::Initialize()
 	}
 	MobCnt = 8;
 	//StageCnt = 0~2 ->mob1 , 3~5 -> mob2 6> boss
-	StageCnt = 7;
+	StageCnt = 0;
 	Time = GetTickCount64();
 	ImageList = Object::GetImageList();
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
 	BulletList = ObjectManager::GetInstance()->GetBulletList();
 	EnemyBulletList = ObjectManager::GetInstance()->GetEnemyBulletList();
+	ItemList = ObjectManager::GetInstance()->GetItemList();
 }
 
 void Stage1::Update()
@@ -80,14 +82,37 @@ void Stage1::Update()
 		// ** 충돌 처리
 			if (CollisionManager::EllipseCollision((*iter), m_pPlayer))
 			{
-				
-				iResult = 1;
+				//iResult = 1;
 			}
 		
 
 		// ** 총알을 삭제하는 구간.
 		if (iResult == 1)
 			iter = EnemyBulletList->erase(iter);
+		else
+			++iter;
+	}
+	for (vector<Object*>::iterator iter = ItemList->begin();
+		iter != ItemList->end(); )
+	{
+		// ** 총알이 화면 밖을 넘어가게 되면 reutrn 1 을 반환 하고, 
+		// ** iResult == 1이면 총알은 삭제됨.
+		int iResult = (*iter)->Update();
+		// ** Enemy 리스트의 progress
+		// ** 충돌 처리
+		if (CollisionManager::EllipseCollision((*iter), m_pPlayer))
+		{
+			int Tmp;
+			Tmp = m_pPlayer->GetPower();
+			Tmp++;
+			m_pPlayer->SetPower(Tmp);
+			iResult = 1;
+		}
+
+
+		// ** 총알을 삭제하는 구간.
+		if (iResult == 1)
+			iter = ItemList->erase(iter);
 		else
 			++iter;
 	}
@@ -112,8 +137,13 @@ void Stage1::Update()
 				if (tmp == 0)
 				{
 				// ** 몬스터 삭제
-				iter2 = EnemyList->erase(iter2);
-				MobCnt--;
+					Object* pObj = new Item;
+					pObj->Initialize();
+					pObj->SetPosition((*iter2)->GetPosition().x,(*iter2)->GetPosition().y-30);
+					pObj->SetColliderPosition((*iter2)->GetPosition().x, (*iter2)->GetPosition().y - 30);
+					ItemList->push_back(pObj);
+					iter2 = EnemyList->erase(iter2);
+					MobCnt--;
 
 				}
 				// ** 삭제할 오브젝트로 지정한뒤
@@ -176,7 +206,7 @@ void Stage1::Update()
 		}
 		MobCnt = 8;
 		//boss
-		if (StageCnt ==7)
+		if (StageCnt ==6)
 		{
 			MobCnt = 1;
 			Object* pObj = new Boss;
@@ -197,6 +227,10 @@ void Stage1::Render(HDC _hdc)
 
 	for (vector<Object*>::iterator iter = EnemyList->begin();
 		iter != EnemyList->end(); ++iter)
+		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
+
+	for (vector<Object*>::iterator iter = ItemList->begin();
+		iter != ItemList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
 
 	for (vector<Object*>::iterator iter = EnemyBulletList->begin();

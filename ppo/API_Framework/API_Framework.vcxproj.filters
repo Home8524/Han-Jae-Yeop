@@ -79,12 +79,6 @@
     <Filter Include="소스 파일\99. Manager\RenderManager\Bitmap">
       <UniqueIdentifier>{5c0e7c88-281f-4729-920c-d9021fd496fb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\02. Object\HammerEffect">
-      <UniqueIdentifier>{65f7cea3-2c63-4726-ab4e-935cfbc6f7bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\02. Object\EnemyHole">
-      <UniqueIdentifier>{fd2dc172-e18e-4054-962d-a13e21893790}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\99. Manager\Pattern\Bridge">
       <UniqueIdentifier>{c4d1bd83-aff2-4aa2-8d00-d8d24fc923b9}</UniqueIdentifier>
     </Filter>
@@ -138,6 +132,9 @@
     </Filter>
     <Filter Include="소스 파일\02. Object\Bullet\BossBullet3">
       <UniqueIdentifier>{35ae7a9b-0ea6-49c7-a2d8-1d23d0c8b693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Item">
+      <UniqueIdentifier>{3b9558ef-6ca2-46ca-a9cf-8b646c8723d9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -224,12 +221,6 @@
     </ClInclude>
     <ClInclude Include="Headers.h">
       <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="HammerEffect.h">
-      <Filter>소스 파일\02. Object\HammerEffect</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyHole.h">
-      <Filter>소스 파일\02. Object\EnemyHole</Filter>
     </ClInclude>
     <ClInclude Include="Bridge.h">
       <Filter>소스 파일\99. Manager\Pattern\Bridge</Filter>
@@ -363,6 +354,18 @@
     <ClInclude Include="MagicBullet.h">
       <Filter>소스 파일\02. Object\Bullet\BossBullet3</Filter>
     </ClInclude>
+    <ClInclude Include="Knife.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet3</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>소스 파일\02. Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalBullet2.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalBullet3.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -415,12 +418,6 @@
     </ClCompile>
     <ClCompile Include="Bitmap.cpp">
       <Filter>소스 파일\99. Manager\RenderManager\Bitmap</Filter>
-    </ClCompile>
-    <ClCompile Include="HammerEffect.cpp">
-      <Filter>소스 파일\02. Object\HammerEffect</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyHole.cpp">
-      <Filter>소스 파일\02. Object\EnemyHole</Filter>
     </ClCompile>
     <ClCompile Include="Bridge.cpp">
       <Filter>소스 파일\99. Manager\Pattern\Bridge</Filter>
@@ -553,6 +550,18 @@
     </ClCompile>
     <ClCompile Include="MagicBullet.cpp">
       <Filter>소스 파일\02. Object\Bullet\BossBullet3</Filter>
+    </ClCompile>
+    <ClCompile Include="Knife.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet3</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>소스 파일\02. Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalBullet3.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalBullet2.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

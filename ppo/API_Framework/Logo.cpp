@@ -72,9 +72,10 @@ void Logo::Initialize()
 	ImageList["Magic1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/magic.bmp");
 	ImageList["Magic2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/magic2.bmp");
 	ImageList["Magic3"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/magic3.bmp");
-
+	ImageList["Knife"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/knife.bmp");
 
 	ImageList["BossHP"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/bosshp1.bmp");
+	ImageList["Power"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/power.bmp");
 	LogoBack = new Logo_Back;
 	LogoBack->Initialize();
 	Object::SetImageList(ImageList);

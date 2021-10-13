@@ -16,6 +16,7 @@ protected:
 	string strKey;
 	bool Active;
 	float Speed;
+	int Power;
 	// ** 출력 이미지 보관
 	static map<string, Bitmap*> ImageList;
 	static int MobNum;
@@ -40,6 +41,9 @@ public:
 	void SetHp(int& _hp) { HP = _hp; }
 	int GetHp() { return HP; }
 
+	void SetPower(int& _power) { Power = _power; }
+	int GetPower() { return Power; }
+
 	static void SetMobNum(int& _mobnum) { MobNum = _mobnum; }
 	static int GetMobNum() { return MobNum; }
 	// ** 좌표를 Setting (Vector3)
@@ -61,6 +65,7 @@ public:
 	Transform GetColliderTransform() { return Collider; }
 
 	// ** 충돌체를 Setting
+	void SetColliderPosition(Vector3 _position) { Collider.Position = _position; }
 	void SetColliderPosition(float _x, float _y) { Collider.Position.x = _x; Collider.Position.y = _y; }
 	
 	// ** 충돌체의 Top 좌표를 반환.

@@ -64,6 +64,8 @@ int Boss::Update()
 	}
 	else if (HP >= 50 && HP < 75)
 	{
+		TransInfo.Position.x = 320.0f;
+
 		Object::SetImageList(ImageList);
 		if (Time2 + 1000 < GetTickCount64())
 		{
@@ -99,14 +101,19 @@ int Boss::Update()
 		}
 		Frame = 200;
 	}
-	else if (HP < 147)
+	else if (HP >0 && HP <50)
 	{
 		if (TransInfo.Position.x < 330 && TransInfo.Position.x>310) TransInfo.Position.x = 320.0f;
 		else if (TransInfo.Position.x > 320) TransInfo.Position.x -= 2.0f;
 		else if (TransInfo.Position.x < 320) TransInfo.Position.x += 2.0f;
-		if (Time4 + 10000 < GetTickCount64())
+		Object::SetImageList(ImageList);
+		if (Time2 + 1000 < GetTickCount64())
 		{
-			Object::SetImageList(ImageList);
+			BulletList->push_back(CreateBullet<Knife>());
+			Time2 = GetTickCount64();
+		}
+		if (Time4 + 5000 < GetTickCount64())
+		{
 			BulletList->push_back(CreateBullet<Magic>());
 			Time4 = GetTickCount64();
 		}
