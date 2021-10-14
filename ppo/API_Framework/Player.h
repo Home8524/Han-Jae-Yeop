@@ -10,6 +10,7 @@ private:
 	float OldPositionY;
 	float JumpTime;
 	int Frame;
+	string DrawKey;
 	ULONGLONG Time;
 	vector<Object*>* BulletList;
 public:

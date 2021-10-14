@@ -209,6 +209,7 @@ void ObjectManager::Release()
 		::Safe_Delete((*iter));
 	}
 	EnableList.clear();
+
 }
 
 void ObjectManager::AddBullet(Vector3 _vPos)

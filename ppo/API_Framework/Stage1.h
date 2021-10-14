@@ -9,8 +9,10 @@ private:
 
 	map<string, Bitmap*> ImageList;
 	ULONGLONG Time;
+	ULONGLONG Time2;
 
 	Object* m_pPlayer;
+	Object* Effect;
 	vector<Object*>* EnemyList;
 	vector<Object*>* BulletList;
 	vector<Object*>* EnemyBulletList;
@@ -18,6 +20,7 @@ private:
 
 	int MobCnt;
 	int StageCnt;
+	int Flag;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

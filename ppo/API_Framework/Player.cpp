@@ -28,14 +28,15 @@ void Player::Initialize()
 
 	strKey = "Player1";
 	Active = false;
-
+	DrawKey = "Heart";
 	Speed = 3.0f;
 
 	Drop = false;
 	bJump = false;
 	Power = 1;
 	SetPower(Power);
-
+	HP = 3;
+	SetHp(HP);
 	Frame = 0;
 	OldPositionY = 0.0f;
 	JumpSpeed = 8.0f;
@@ -117,7 +118,20 @@ void Player::Render(HDC _hdc)
 		int(TransInfo.Scale.x),
 		int(TransInfo.Scale.y),
 		RGB(255, 0, 255));
-	
+	for (int i = 0; i < HP; i++)
+	{
+		TransparentBlt(_hdc,
+			int(TransInfo.Position.x - (TransInfo.Scale.x / 2) + Offset.x)-15+(20*i),
+			int(TransInfo.Position.y - (TransInfo.Scale.y / 2) + Offset.y)+50,
+			22,
+			22,
+			ImageList[DrawKey]->GetMemDC(),
+			0,
+			0,
+			22,
+			22,
+			RGB(255, 0, 255));
+	}
 	//판정히트박스
 	Ellipse(_hdc, Collider.Position.x, Collider.Position.y, Collider.Position.x + 10, Collider.Position.y + 10);
 

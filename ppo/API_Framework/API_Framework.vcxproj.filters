@@ -136,6 +136,9 @@
     <Filter Include="소스 파일\02. Object\Item">
       <UniqueIdentifier>{3b9558ef-6ca2-46ca-a9cf-8b646c8723d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Effect">
+      <UniqueIdentifier>{7be82b19-4b3b-4bae-b7bb-92061fb446e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -366,6 +369,9 @@
     <ClInclude Include="NormalBullet3.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
     </ClInclude>
+    <ClInclude Include="Effect1.h">
+      <Filter>소스 파일\02. Object\Effect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -562,6 +568,9 @@
     </ClCompile>
     <ClCompile Include="NormalBullet2.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect1.cpp">
+      <Filter>소스 파일\02. Object\Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

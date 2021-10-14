@@ -76,6 +76,8 @@ void Logo::Initialize()
 
 	ImageList["BossHP"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/bosshp1.bmp");
 	ImageList["Power"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/power.bmp");
+	ImageList["Heart"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/heart.bmp");
+	ImageList["Fire"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/fire.bmp");
 	LogoBack = new Logo_Back;
 	LogoBack->Initialize();
 	Object::SetImageList(ImageList);
