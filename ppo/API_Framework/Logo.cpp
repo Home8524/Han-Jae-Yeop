@@ -40,6 +40,10 @@ void Logo::Initialize()
 	ImageList["Menu"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/menu.bmp");
 	ImageList["Level"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/select00.bmp");
 	ImageList["Stage1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/stg1bg.bmp");
+	ImageList["Spell1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/eff02.bmp");
+	ImageList["Spell2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/eff03.bmp");
+	ImageList["Spell3"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/eff04.bmp");
+	ImageList["End"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/end00.bmp");
 #pragma endregion
 	
 #pragma region 난이도 선택
@@ -67,6 +71,7 @@ void Logo::Initialize()
 	ImageList["Bullet1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/bullet01.bmp");
 	ImageList["EnemyBullet1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/enemybullet1.bmp");
 	ImageList["EnemyBullet2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/enemybullet2.bmp");
+	ImageList["EnemyBullet3"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/enemybullet3.bmp");
 	ImageList["BossBullet1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/bossbullet01.bmp");
 	ImageList["BossBullet2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/bossbullet02.bmp");
 	ImageList["Magic1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/magic.bmp");
@@ -78,6 +83,7 @@ void Logo::Initialize()
 	ImageList["Power"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/power.bmp");
 	ImageList["Heart"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/heart.bmp");
 	ImageList["Fire"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/fire.bmp");
+	ImageList["Cloud"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/cloud.bmp");
 	LogoBack = new Logo_Back;
 	LogoBack->Initialize();
 	Object::SetImageList(ImageList);

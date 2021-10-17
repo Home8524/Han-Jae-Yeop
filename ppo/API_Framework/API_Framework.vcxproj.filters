@@ -139,6 +139,15 @@
     <Filter Include="소스 파일\02. Object\Effect">
       <UniqueIdentifier>{7be82b19-4b3b-4bae-b7bb-92061fb446e0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BossBullet4">
+      <UniqueIdentifier>{485d1b8e-54b6-42c3-9b5f-cb4435730b9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene\End">
+      <UniqueIdentifier>{443fab16-eb27-404d-8ddf-25b81a14d9cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\BackGround\End_Back">
+      <UniqueIdentifier>{f8109e60-1a40-4774-be2c-7c590db77691}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -372,6 +381,63 @@
     <ClInclude Include="Effect1.h">
       <Filter>소스 파일\02. Object\Effect</Filter>
     </ClInclude>
+    <ClInclude Include="ColBox.h">
+      <Filter>소스 파일\02. Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet1.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet2.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet3.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet4.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet5.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet6.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet7.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet8.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet9.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet10.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet11.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet12.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet13.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet14.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet15.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Rbullet16.h">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClInclude>
+    <ClInclude Include="Ending.h">
+      <Filter>소스 파일\01. Scene\End</Filter>
+    </ClInclude>
+    <ClInclude Include="End_Back.h">
+      <Filter>소스 파일\02. Object\BackGround\End_Back</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -571,6 +637,63 @@
     </ClCompile>
     <ClCompile Include="Effect1.cpp">
       <Filter>소스 파일\02. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="ColBox.cpp">
+      <Filter>소스 파일\02. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet1.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet2.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet3.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet4.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet5.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet6.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet7.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet8.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet9.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet10.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet11.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet12.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet13.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet14.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet15.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Rbullet16.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BossBullet4</Filter>
+    </ClCompile>
+    <ClCompile Include="Ending.cpp">
+      <Filter>소스 파일\01. Scene\End</Filter>
+    </ClCompile>
+    <ClCompile Include="End_Back.cpp">
+      <Filter>소스 파일\02. Object\BackGround\End_Back</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

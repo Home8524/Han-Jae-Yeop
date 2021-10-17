@@ -25,7 +25,7 @@ void Boss::Initialize()
 
 	Active = false;
 	strKey = "Boss";
-	HP = 150;
+	HP = 450;
 	SetHp(HP);
 	Speed = 1.5f;
 	BulletList = ObjectManager::GetInstance()->GetEnemyBulletList();
@@ -38,6 +38,8 @@ void Boss::Initialize()
 	Left = true;
 	Cnt = 1;
 	HpBar = false;
+	TP = ObjectManager::GetInstance()->GetPlayer();
+	Cng = 0;
 }
 
 int Boss::Update()
@@ -47,23 +49,31 @@ int Boss::Update()
 		Offset.y += 2.5f;
 	*/
 	//페이즈1
-	if (HP >= 100 && HP <125)
+	if (HP > 300 && HP <425)
 	{
+		if (TransInfo.Position.x < 330 && TransInfo.Position.x>310) TransInfo.Position.x = 320.0f;
+		else if (TransInfo.Position.x > 320) TransInfo.Position.x -= 2.0f;
+		else if (TransInfo.Position.x < 320) TransInfo.Position.x += 2.0f;
+
+		int Tmp = 1;
+		TP->SetPhase(Tmp);
+		Object::SetImageList(ImageList);
 		if (Time2 + 1000 < GetTickCount64())
 		{
-			Object::SetImageList(ImageList);
-			BulletList->push_back(CreateBullet<BigBullet>());
-			BulletList->push_back(CreateBullet<EnemyBullet1>());
-			BulletList->push_back(CreateBullet<EnemyBullet2>());
-			BulletList->push_back(CreateBullet<EnemyBullet3>());
-			BulletList->push_back(CreateBullet<EnemyBullet4>());
-			BulletList->push_back(CreateBullet<EnemyBullet5>());
+			BulletList->push_back(CreateBullet<Knife>());
 			Time2 = GetTickCount64();
+		}
+		if (Time4 + 5000 < GetTickCount64())
+		{
+			BulletList->push_back(CreateBullet<Magic>());
+			Time4 = GetTickCount64();
 		}
 		Frame = 200;
 	}
-	else if (HP >= 50 && HP < 75)
+	else if (HP > 150 && HP < 300)
 	{
+		int Tmp = 2;
+		TP->SetPhase(Tmp);
 		TransInfo.Position.x = 320.0f;
 
 		Object::SetImageList(ImageList);
@@ -101,21 +111,43 @@ int Boss::Update()
 		}
 		Frame = 200;
 	}
-	else if (HP >0 && HP <50)
+	else if (HP >0 && HP <150)
 	{
-		if (TransInfo.Position.x < 330 && TransInfo.Position.x>310) TransInfo.Position.x = 320.0f;
-		else if (TransInfo.Position.x > 320) TransInfo.Position.x -= 2.0f;
-		else if (TransInfo.Position.x < 320) TransInfo.Position.x += 2.0f;
+		int Tmp = 3;
+		TP->SetPhase(Tmp);
 		Object::SetImageList(ImageList);
 		if (Time2 + 1000 < GetTickCount64())
 		{
-			BulletList->push_back(CreateBullet<Knife>());
+			BulletList->push_back(CreateBullet<BigBullet>());
 			Time2 = GetTickCount64();
 		}
-		if (Time4 + 5000 < GetTickCount64())
+		if (Time3 + 50 < GetTickCount64())
 		{
-			BulletList->push_back(CreateBullet<Magic>());
-			Time4 = GetTickCount64();
+			if (Cng < 8)
+			{
+				BulletList->push_back(CreateBullet<Rbullet1>());
+				BulletList->push_back(CreateBullet<Rbullet2>());
+				BulletList->push_back(CreateBullet<Rbullet3>());
+				BulletList->push_back(CreateBullet<Rbullet4>());
+				BulletList->push_back(CreateBullet<Rbullet5>());
+				BulletList->push_back(CreateBullet<Rbullet6>());
+				BulletList->push_back(CreateBullet<Rbullet7>());
+				BulletList->push_back(CreateBullet<Rbullet8>());
+			}
+			else if (Cng < 16)
+			{
+				BulletList->push_back(CreateBullet<Rbullet9>());
+				BulletList->push_back(CreateBullet<Rbullet10>());
+				BulletList->push_back(CreateBullet<Rbullet11>());
+				BulletList->push_back(CreateBullet<Rbullet12>());
+				BulletList->push_back(CreateBullet<Rbullet13>());
+				BulletList->push_back(CreateBullet<Rbullet14>());
+				BulletList->push_back(CreateBullet<Rbullet15>());
+				BulletList->push_back(CreateBullet<Rbullet16>());
+			}
+			else Cng = 0;
+			Cng++;
+			Time3 = GetTickCount64();
 		}
 		Frame = 200;
 	}
@@ -177,14 +209,14 @@ void Boss::Render(HDC _hdc)
 	{
 		int Tmp;
 		int Hpsave;
-		if (HP > 100)
+		if (HP > 300)
 		{
-			Hpsave = HP - 100;
+			Hpsave = HP - 300;
 			Tmp = 0;
 		}
-		else if (HP > 50)
+		else if (HP > 150)
 		{
-			Hpsave = HP - 50;
+			Hpsave = HP - 150;
 			Tmp = 1;
 		}
 		else
@@ -195,7 +227,7 @@ void Boss::Render(HDC _hdc)
 		TransparentBlt(_hdc, // ** 최종 출력 위치
 			100,
 			10,
-			Hpsave*9,
+			Hpsave*3,
 			10,
 			ImageList["BossHP"]->GetMemDC(),
 			50*Tmp,
@@ -208,7 +240,6 @@ void Boss::Render(HDC _hdc)
 
 void Boss::Release()
 {
-
 }
 
 template <typename T>

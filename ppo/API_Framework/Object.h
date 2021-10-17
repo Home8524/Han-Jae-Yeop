@@ -20,7 +20,7 @@ protected:
 	// ** 출력 이미지 보관
 	static map<string, Bitmap*> ImageList;
 	static int MobNum;
-
+	int Phase;
 public:
 	virtual void Initialize()PURE;
 	virtual int Update()PURE;
@@ -44,6 +44,8 @@ public:
 	void SetPower(int& _power) { Power = _power; }
 	int GetPower() { return Power; }
 
+	void SetPhase(int& _phase) { Phase = _phase; }
+	int GetPhase() { return Phase; }
 	static void SetMobNum(int& _mobnum) { MobNum = _mobnum; }
 	static int GetMobNum() { return MobNum; }
 	// ** 좌표를 Setting (Vector3)
@@ -54,6 +56,8 @@ public:
 
 	// ** 좌표를 Vector3로 out
 	Vector3 GetPosition() { return TransInfo.Position; }
+
+	void SetScale(Vector3 _scale) { TransInfo.Scale = _scale; }
 
 	// ** 크기를 Vector3로 out
 	Vector3 GetScale() { return TransInfo.Scale; }

@@ -1,5 +1,8 @@
 #include "Magic.h"
 #include "Object.h"
+#include "CollisionManager.h"
+#include "ObjectManager.h"
+#include "ColBox.h"
 Magic::Magic()
 {
 
@@ -17,7 +20,30 @@ void Magic::Initialize()
 	DrawKey = "Magic1";
 	ImageList = Object::GetImageList();
 	Time = GetTickCount64();
+	Time2 = GetTickCount64();
 	Flag = 0;
+	T.clear();
+	T.shrink_to_fit();
+	
+	for (int i = 0; i < 8; ++i)
+	{
+		if (i == 3) continue;
+		int j = 0;
+		int k = 0;
+		if (i >= 6)
+		{
+			k = 30;
+			j = 100 + 360 * (i - 6) - 40 + ((i - 5) * 120);
+		}
+		Object* Tmp = new ColBox;
+		Tmp->SetPosition(WindowsWidth - (120 * i) + j + 24, 50 - k + 30);
+		Vector3 Save;
+		Save.x = 16;
+		Save.y = 500;
+		Tmp->SetScale(Save);
+		T.push_back(Tmp);
+	}
+	
 }
 
 int Magic::Update(Transform& _rTransInfo)
@@ -30,11 +56,60 @@ int Magic::Update(Transform& _rTransInfo)
 	if (Time + 2000 < GetTickCount64())
 	{
 		Flag = 2;
+		Object* m_pPlayer;
+		m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
+
+		for (vector<Object*>::iterator iter = T.begin();
+			iter != T.end(); ++iter)
+		{
+
+			if (CollisionManager::RectCollision((*iter), m_pPlayer))
+			{
+				int Tmp = m_pPlayer->GetHp();
+				Tmp--;
+				m_pPlayer->SetHp(Tmp);
+				if (Tmp == 0)
+				{
+					int End = 4;
+					m_pPlayer->SetPhase(End);
+					break;
+				}
+				m_pPlayer->SetColliderPosition(Vector3(WindowsWidth / 2, WindowsHeight / 2 + 180.0f));
+				m_pPlayer->SetPosition(Vector3(WindowsWidth / 2, WindowsHeight / 2 + 200.0f));
+
+			}
+
+		}
 	}
 	
 	if (Time + 3000 < GetTickCount64())
 	{
 		Flag = 3;
+		Object* m_pPlayer;
+		m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
+		
+		for (vector<Object*>::iterator iter = T.begin();
+			iter != T.end();++iter )
+		{
+			
+			if (CollisionManager::RectCollision((*iter), m_pPlayer))
+			{
+					int Tmp = m_pPlayer->GetHp();
+					Tmp--;
+					m_pPlayer->SetHp(Tmp);
+					if (Tmp == 0)
+					{
+						int End = 4;
+						m_pPlayer->SetPhase(End);
+						break;
+					}
+					m_pPlayer->SetColliderPosition(Vector3(WindowsWidth / 2, WindowsHeight / 2 + 180.0f));
+					m_pPlayer->SetPosition(Vector3(WindowsWidth / 2, WindowsHeight / 2 + 200.0f));
+				
+			}
+			
+		}
+		
 	}
 	
 	if (Time + 5000 < GetTickCount64())

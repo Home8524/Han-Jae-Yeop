@@ -45,7 +45,7 @@ void Stage1::Initialize()
 	}
 	MobCnt = 8;
 	//StageCnt = 0~2 ->mob1 , 3~5 -> mob2 6> boss
-	StageCnt = 0;
+	StageCnt = 4;
 	Time = GetTickCount64();
 	Time2 = GetTickCount64();
 	ImageList = Object::GetImageList();
@@ -66,14 +66,14 @@ void Stage1::Update()
 {
 	m_pPlayer->Update();
 	Effect->Update();
+	State_Back->Update();
 
 	if (GetAsyncKeyState('X')  && Time + 100 < GetTickCount64()) {
-		Flag = 1;
-		SceneManager::GetInstance()->SetScene(SCENEID::LEVEL);
-		Time = GetTickCount64();
+		int Tmp = 3;
+		m_pPlayer->SetHp(Tmp);
 	}
-	if(Flag==1) SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
-
+	if(m_pPlayer->GetPhase() == 4) SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
+	if(m_pPlayer->GetPhase() == 5) SceneManager::GetInstance()->SetScene(SCENEID::END);
 	if (Flag == 0)
 	{
 		for (vector<Object*>::iterator iter = EnemyList->begin();
@@ -91,6 +91,7 @@ void Stage1::Update()
 			// ** 충돌 처리
 			if (CollisionManager::EllipseCollision((*iter), m_pPlayer))
 			{
+				
 				if (Time2 + 3000 < GetTickCount64())
 				{
 					int Tmp = m_pPlayer->GetHp();
@@ -100,13 +101,16 @@ void Stage1::Update()
 					Effect->SetActive(true);
 					if (Tmp == 0)
 					{
-						Flag = 1;
+						int End = 4;
+						m_pPlayer->SetPhase(End);
 						break;
 					}
 					m_pPlayer->SetColliderPosition(Vector3(WindowsWidth / 2, WindowsHeight / 2 + 180.0f));
 					m_pPlayer->SetPosition(Vector3(WindowsWidth / 2, WindowsHeight / 2 + 200.0f));
 					Time2 = GetTickCount64();
 				}
+				
+				
 				//iResult = 1;
 			}
 
@@ -161,6 +165,11 @@ void Stage1::Update()
 					(*iter2)->SetHp(tmp);
 					if (tmp == 0)
 					{
+						if (m_pPlayer->GetPhase() == 3)
+						{
+							int End = 5;
+							m_pPlayer->SetPhase(End);
+						}
 						// ** 몬스터 삭제
 						Object* pObj = new Item;
 						pObj->Initialize();
@@ -192,7 +201,7 @@ void Stage1::Update()
 		if (MobCnt == 0)
 		{
 			//mob1
-			if (StageCnt >= 0 && StageCnt < 3)
+			if (StageCnt >= 0 && StageCnt < 2)
 			{
 				for (int i = 0; i < 8; ++i)
 				{
@@ -210,7 +219,7 @@ void Stage1::Update()
 				}
 			}
 			//mob2
-			else if (StageCnt >= 3 && StageCnt < 6)
+			else if (StageCnt >= 2 && StageCnt < 4)
 			{
 				int a = 1;
 				Object::SetMobNum(a);
@@ -231,7 +240,7 @@ void Stage1::Update()
 			}
 			MobCnt = 8;
 			//boss
-			if (StageCnt == 6)
+			if (StageCnt == 4)
 			{
 				MobCnt = 1;
 				Object* pObj = new Boss;

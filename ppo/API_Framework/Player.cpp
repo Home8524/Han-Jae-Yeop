@@ -24,7 +24,7 @@ void Player::Initialize()
 
 	//�浹ü
 	Collider.Position = Vector3(TransInfo.Position.x, TransInfo.Position.y - 20.0f);
-	Collider.Scale = Vector3(120.0f, 60.0f);
+	Collider.Scale = Vector3(10.0f, 10.0f);
 
 	strKey = "Player1";
 	Active = false;
@@ -41,7 +41,8 @@ void Player::Initialize()
 	OldPositionY = 0.0f;
 	JumpSpeed = 8.0f;
 	JumpTime = 0.0f;
-
+	int Tmp = 0;
+	SetPhase(Tmp);
 	Offset = Vector3(5.0f, -12.0f);
 	Time = GetTickCount64();
 	BulletList = ObjectManager::GetInstance()->GetBulletList();

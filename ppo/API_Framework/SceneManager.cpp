@@ -5,6 +5,7 @@
 #include "Stage.h"
 #include "Level.h"
 #include "Stage1.h"
+#include "Ending.h"
 SceneManager* SceneManager::Instance = nullptr;
 
 
@@ -31,6 +32,9 @@ void SceneManager::SetScene(SCENEID _SceneID)
 		break;
 	case SCENEID::STAGE1:
 		pSceneState = new Stage1;
+		break;
+	case SCENEID::END:
+		pSceneState = new Ending;
 		break;
 	case SCENEID::EXIT:
 		exit(NULL);

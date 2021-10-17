@@ -1,9 +1,7 @@
 #include "Object.h"
 
-class Stage1_Back : public Object
+class End_Back : public Object
 {
-public:
-	Object* TP;
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;
@@ -12,9 +10,9 @@ public:
 
 	virtual Object* Clone()
 	{
-		return new Stage1_Back(*this);
+		return new End_Back(*this);
 	};
 public:
-	Stage1_Back();
-	virtual ~Stage1_Back();
+	End_Back();
+	virtual ~End_Back();
 };

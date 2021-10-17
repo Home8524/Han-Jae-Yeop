@@ -13,6 +13,8 @@ public:
 	int Cnt;
 	bool Left;
 	bool HpBar;
+	int Cng;
+	Object* TP;
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;

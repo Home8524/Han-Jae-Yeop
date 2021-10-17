@@ -17,6 +17,7 @@ void NormalBullet2::Initialize()
 	DrawKey = "Bullet1";
 
 	ImageList = Object::GetImageList();
+	RealObject->SetPosition(-17 + int(RealObject->GetPosition().x), -40 + int(RealObject->GetPosition().y));
 }
 
 int NormalBullet2::Update(Transform& _rTransInfo)
@@ -37,8 +38,8 @@ void NormalBullet2::Render(HDC _hdc)
 
 
 	TransparentBlt(_hdc, // ** 최종 출력 위치
-		-17 + int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
-		-40 + int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
+		int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
+		int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
 		17,
 		16,
 		ImageList[DrawKey]->GetMemDC(),
