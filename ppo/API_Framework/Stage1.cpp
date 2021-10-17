@@ -45,11 +45,13 @@ void Stage1::Initialize()
 	}
 	MobCnt = 8;
 	//StageCnt = 0~2 ->mob1 , 3~5 -> mob2 6> boss
-	StageCnt = 4;
+	StageCnt = 0;
 	Time = GetTickCount64();
 	Time2 = GetTickCount64();
 	ImageList = Object::GetImageList();
 	m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
+	int B = 0;
+	m_pPlayer->SetPhase(B);
 	int A = 3;
 	m_pPlayer->SetHp(A);
 	m_pPlayer->SetColliderPosition(Vector3(WindowsWidth / 2, WindowsHeight / 2 + 180.0f));
@@ -68,13 +70,15 @@ void Stage1::Update()
 	Effect->Update();
 	State_Back->Update();
 
+	int Test = m_pPlayer->GetPhase();
 	if (GetAsyncKeyState('X')  && Time + 100 < GetTickCount64()) {
 		int Tmp = 3;
 		m_pPlayer->SetHp(Tmp);
 	}
-	if(m_pPlayer->GetPhase() == 4) SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
-	if(m_pPlayer->GetPhase() == 5) SceneManager::GetInstance()->SetScene(SCENEID::END);
-	if (Flag == 0)
+	if(Test== 4) SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
+	
+	if(Test== 5) SceneManager::GetInstance()->SetScene(SCENEID::END);
+	if (Test!= 4&& Test != 5)
 	{
 		for (vector<Object*>::iterator iter = EnemyList->begin();
 			iter != EnemyList->end(); ++iter)
@@ -109,9 +113,6 @@ void Stage1::Update()
 					m_pPlayer->SetPosition(Vector3(WindowsWidth / 2, WindowsHeight / 2 + 200.0f));
 					Time2 = GetTickCount64();
 				}
-				
-				
-				//iResult = 1;
 			}
 
 
@@ -121,6 +122,7 @@ void Stage1::Update()
 			else
 				++iter;
 		}
+		// æ∆¿Ã≈€
 		for (vector<Object*>::iterator iter = ItemList->begin();
 			iter != ItemList->end(); )
 		{
@@ -198,6 +200,7 @@ void Stage1::Update()
 				++iter;
 		}
 
+		//∏˜ ¥Ÿ¡◊¿Ω
 		if (MobCnt == 0)
 		{
 			//mob1
@@ -250,6 +253,7 @@ void Stage1::Update()
 			StageCnt++;
 		}
 	}
+	
 }
 
 void Stage1::Render(HDC _hdc)
@@ -295,4 +299,5 @@ void Stage1::Release()
 	EnemyBulletList->shrink_to_fit();
 	ItemList->shrink_to_fit();
 	BulletList->shrink_to_fit();
+	//delete m_pPlayer;
 }
