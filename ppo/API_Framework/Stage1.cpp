@@ -44,7 +44,7 @@ void Stage1::Initialize()
 		EnemyList->push_back(pObj);
 	}
 	MobCnt = 8;
-	//StageCnt = 0~2 ->mob1 , 3~5 -> mob2 6> boss
+	//StageCnt = 0~1 ->mob1 , 2~3 -> mob2 4> boss
 	StageCnt = 0;
 	Time = GetTickCount64();
 	Time2 = GetTickCount64();

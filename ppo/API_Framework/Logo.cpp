@@ -6,6 +6,7 @@
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
 #include "Logo_Back.h"
+#include "ScoreManager.h"
 
 Logo::Logo()
 {
@@ -86,6 +87,8 @@ void Logo::Initialize()
 	ImageList["Cloud"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/cloud.bmp");
 	LogoBack = new Logo_Back;
 	LogoBack->Initialize();
+	ScoreManager::GetInstance()->SetImage((new Bitmap)->LoadBmp(L"../Resource/Number.bmp"));
+
 	Object::SetImageList(ImageList);
 }
 

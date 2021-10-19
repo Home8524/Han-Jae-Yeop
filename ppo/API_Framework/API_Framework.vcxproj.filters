@@ -148,6 +148,9 @@
     <Filter Include="소스 파일\02. Object\BackGround\End_Back">
       <UniqueIdentifier>{f8109e60-1a40-4774-be2c-7c590db77691}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\ScoreManager">
+      <UniqueIdentifier>{63a43ed2-1fc1-4b15-ac04-f5697d4c3d4c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -438,6 +441,9 @@
     <ClInclude Include="End_Back.h">
       <Filter>소스 파일\02. Object\BackGround\End_Back</Filter>
     </ClInclude>
+    <ClInclude Include="ScoreManager.h">
+      <Filter>소스 파일\99. Manager\ScoreManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -694,6 +700,9 @@
     </ClCompile>
     <ClCompile Include="End_Back.cpp">
       <Filter>소스 파일\02. Object\BackGround\End_Back</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreManager.cpp">
+      <Filter>소스 파일\99. Manager\ScoreManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
