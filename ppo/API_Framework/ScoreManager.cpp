@@ -9,8 +9,6 @@ void ScoreManager::Initialize()
 
 void ScoreManager::MakeScoreNumber()
 {
-	SetScore(687465415);
-	
 	stack<int> Numbers;
 
 	while (Score > 0)
