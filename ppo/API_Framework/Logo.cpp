@@ -87,8 +87,7 @@ void Logo::Initialize()
 	ImageList["Cloud"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/cloud.bmp");
 	LogoBack = new Logo_Back;
 	LogoBack->Initialize();
-	ScoreManager::GetInstance()->SetImage((new Bitmap)->LoadBmp(L"../Resource/Number.bmp"));
-
+	ScoreManager::GetInstance()->SetImage((new Bitmap)->LoadBmp(L"../Resource/TH_Resource/Number.bmp"));
 	Object::SetImageList(ImageList);
 }
 
@@ -101,8 +100,7 @@ void Logo::Update()
 void Logo::Render(HDC _hdc)
 {
 	LogoBack->Render(ImageList["Buffer"]->GetMemDC());
-
-
+	
 	BitBlt(_hdc,
 		0, 0,
 		WindowsWidth,

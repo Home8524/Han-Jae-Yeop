@@ -10,7 +10,7 @@
 #include "Boss.h"
 #include "CollisionManager.h"
 #include "Effect1.h"
-
+#include "ScoreManager.h"
 Stage1::Stage1()
 {
 
@@ -75,7 +75,7 @@ void Stage1::Update()
 		int Tmp = 3;
 		m_pPlayer->SetHp(Tmp);
 	}
-	if(Test== 4) SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
+	if(Test== 4) SceneManager::GetInstance()->SetScene(SCENEID::END);
 	
 	if(Test== 5) SceneManager::GetInstance()->SetScene(SCENEID::END);
 	if (Test!= 4&& Test != 5)
@@ -167,11 +167,15 @@ void Stage1::Update()
 					(*iter2)->SetHp(tmp);
 					if (tmp == 0)
 					{
+						int Sc = ScoreManager::GetInstance()->GetScore();
+						Sc += 100;
 						if (m_pPlayer->GetPhase() == 3)
 						{
+							Sc += 1000;
 							int End = 5;
 							m_pPlayer->SetPhase(End);
 						}
+						ScoreManager::GetInstance()->SetScore(Sc);
 						// ** 몬스터 삭제
 						Object* pObj = new Item;
 						pObj->Initialize();

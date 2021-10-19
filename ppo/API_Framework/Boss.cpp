@@ -3,6 +3,7 @@
 #include "Bullet.h"
 #include "Blt.h"
 #include "ObjectFactory.h"
+#include "ScoreManager.h"
 Boss::Boss()
 {
 
@@ -51,11 +52,19 @@ int Boss::Update()
 	//ÆäÀÌÁî1
 	if (HP > 300 && HP <425)
 	{
+		int Tmp;
+		Tmp = TP->GetPhase();
+		if (Tmp == 0) {
+			int Sc = ScoreManager::GetInstance()->GetScore();
+			Sc += 1000;
+			ScoreManager::GetInstance()->SetScore(Sc);
+		}
+			
 		if (TransInfo.Position.x < 330 && TransInfo.Position.x>310) TransInfo.Position.x = 320.0f;
 		else if (TransInfo.Position.x > 320) TransInfo.Position.x -= 2.0f;
 		else if (TransInfo.Position.x < 320) TransInfo.Position.x += 2.0f;
 
-		int Tmp = 1;
+		Tmp = 1;
 		TP->SetPhase(Tmp);
 		Object::SetImageList(ImageList);
 		if (Time2 + 1000 < GetTickCount64())
@@ -72,7 +81,14 @@ int Boss::Update()
 	}
 	else if (HP > 150 && HP < 300)
 	{
-		int Tmp = 2;
+		int Tmp;
+		Tmp = TP->GetPhase();
+		if (Tmp == 1) {
+			int Sc = ScoreManager::GetInstance()->GetScore();
+			Sc += 1000;
+			ScoreManager::GetInstance()->SetScore(Sc);
+		}
+		Tmp = 2;
 		TP->SetPhase(Tmp);
 		TransInfo.Position.x = 320.0f;
 
@@ -113,7 +129,14 @@ int Boss::Update()
 	}
 	else if (HP >0 && HP <150)
 	{
-		int Tmp = 3;
+		int Tmp;
+		Tmp = TP->GetPhase();
+		if (Tmp == 2) {
+			int Sc = ScoreManager::GetInstance()->GetScore();
+			Sc += 1000;
+			ScoreManager::GetInstance()->SetScore(Sc);
+		}
+		Tmp = 3;
 		TP->SetPhase(Tmp);
 		Object::SetImageList(ImageList);
 		if (Time2 + 1000 < GetTickCount64())

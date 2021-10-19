@@ -30,15 +30,22 @@ void ScoreManager::MakeScoreNumber()
 
 void ScoreManager::Render(HDC _hdc)
 {
-	TransparentBlt(_hdc, // ** 최종 출력 위치
-		int(0),
-		int(0),
-		int(64),
-		int(85),
-		Image->GetMemDC(),
-		int(64) * 0,
-		int(85) * 0,
-		int(64),
-		int(85),
-		RGB(255, 0, 255));
+	int i = 0;
+	for (vector<int>::iterator iter=NumberList.begin();iter!=NumberList.end();++iter)
+	{
+		int Tmp;
+		Tmp = (*iter);
+		TransparentBlt(_hdc, // ** 최종 출력 위치
+			int(100)+i,
+			int(50),
+			32,
+			42,
+			Image->GetMemDC(),
+			int(64) * Tmp,
+			int(85) * 0,
+			int(64),
+			int(85),
+			RGB(255, 0, 255));
+		i += 40;
+	}
 }

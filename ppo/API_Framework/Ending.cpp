@@ -1,7 +1,6 @@
 #include "Ending.h"
 #include "SceneManager.h"
 #include "End_Back.h"
-
 Ending::Ending()
 {
 
@@ -33,7 +32,6 @@ void Ending::Update()
 void Ending::Render(HDC _hdc)
 {
 	MenuBack->Render(ImageList["Buffer"]->GetMemDC());
-
 
 	BitBlt(_hdc,
 		0, 0,

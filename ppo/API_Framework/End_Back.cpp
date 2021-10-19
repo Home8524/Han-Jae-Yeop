@@ -1,6 +1,6 @@
 #include "End_Back.h"
 #include "InputManager.h"
-
+#include "ScoreManager.h"
 End_Back::End_Back()
 {
 
@@ -20,6 +20,7 @@ void End_Back::Initialize()
 
 	strKey = "End";
 	Active = false;
+	ScoreManager::GetInstance()->MakeScoreNumber();
 }
 
 int End_Back::Update()
@@ -29,6 +30,8 @@ int End_Back::Update()
 
 void End_Back::Render(HDC _hdc)
 {
+	
+
 	BitBlt(_hdc,
 		0, 0,
 		WindowsWidth,
@@ -36,6 +39,7 @@ void End_Back::Render(HDC _hdc)
 		ImageList[strKey]->GetMemDC(),
 		0, 0,
 		SRCCOPY);
+	ScoreManager::GetInstance()->Render(_hdc);
 }
 
 void End_Back::Release()

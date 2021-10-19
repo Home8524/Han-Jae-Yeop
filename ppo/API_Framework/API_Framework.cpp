@@ -2,12 +2,12 @@
  
 //콘솔창 출력
 /*
+*/
 #ifdef UNICODE
 #pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console")
 #else
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 #endif
-*/
 
 #include "framework.h"
 #include "API_Framework.h"
