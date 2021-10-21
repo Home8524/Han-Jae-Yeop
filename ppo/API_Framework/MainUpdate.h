@@ -5,6 +5,7 @@ class MainUpdate
 {
 private:
 	HDC		m_hdc;
+	int BgmNum;
 public:
 	void Initialize();
 	void Update();

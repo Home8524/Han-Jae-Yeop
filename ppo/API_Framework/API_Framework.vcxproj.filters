@@ -151,6 +151,9 @@
     <Filter Include="소스 파일\99. Manager\ScoreManager">
       <UniqueIdentifier>{63a43ed2-1fc1-4b15-ac04-f5697d4c3d4c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\SoundManager">
+      <UniqueIdentifier>{0778038b-af5a-4b77-b488-661a39a5d90c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -444,6 +447,9 @@
     <ClInclude Include="ScoreManager.h">
       <Filter>소스 파일\99. Manager\ScoreManager</Filter>
     </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>소스 파일\99. Manager\SoundManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -703,6 +709,9 @@
     </ClCompile>
     <ClCompile Include="ScoreManager.cpp">
       <Filter>소스 파일\99. Manager\ScoreManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>소스 파일\99. Manager\SoundManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

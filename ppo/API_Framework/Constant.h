@@ -21,3 +21,7 @@ const int WindowsWidth = 640;
 const int WindowsHeight = 500;
 
 
+#pragma once
+#define SOUND_VOLUME 0.05f
+#define SOUND_VOLUME_MAX 1.0f
+#define SOUND_VOLUME_MIN 0.0f

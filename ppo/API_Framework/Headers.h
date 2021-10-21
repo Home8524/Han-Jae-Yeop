@@ -9,6 +9,11 @@
 #include <stack>
 using namespace std;
 
+// ** Sound
+#pragma comment(lib,"fmod_vc.lib")
+#include <fmod.hpp>
+
+using namespace FMOD;
 #include "Struct.h"
 #include "Enum.h"
 #include "Constant.h"
@@ -16,6 +21,7 @@ using namespace std;
 #include "Bitmap.h"
 
 #pragma comment(lib, "msimg32.lib")
+
 
 
 extern HWND g_hWnd;
