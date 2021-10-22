@@ -11,6 +11,7 @@
 #include "CollisionManager.h"
 #include "Effect1.h"
 #include "ScoreManager.h"
+#include "SoundManager.h"
 Stage1::Stage1()
 {
 
@@ -62,6 +63,7 @@ void Stage1::Initialize()
 	Flag = 0;
 	Effect = new Effect1;
 	Effect->Initialize();
+	SoundSt = 0;
 }
 
 void Stage1::Update()
@@ -69,7 +71,6 @@ void Stage1::Update()
 	m_pPlayer->Update();
 	Effect->Update();
 	State_Back->Update();
-
 	int Test = m_pPlayer->GetPhase();
 	if (GetAsyncKeyState('X')  && Time + 100 < GetTickCount64()) {
 		int Tmp = 3;
@@ -283,6 +284,12 @@ void Stage1::Render(HDC _hdc)
 		iter != EnemyBulletList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
 	
+	if (SoundSt == 0)
+	{
+		SoundManager::GetInstance()->OnPlaySound("BGM2");
+		SoundSt++;
+	}
+
 	BitBlt(_hdc,
 		0, 0,
 		WindowsWidth,

@@ -3,6 +3,8 @@
 class SoundManager
 {
 private:
+	ULONGLONG Time;
+private:
 	static SoundManager* Instance;
 public:
 	static SoundManager* GetInstance()
@@ -20,6 +22,7 @@ public:
 	void LoadSoundDate(const char* _FileName,string _Key);
 	void StreamingUpdate();
 	void OnPlaySound(string _Key);
+	void StopSound(string _Key);
 	void Release();
 	void VolumeUp();
 	void VolumeDown();

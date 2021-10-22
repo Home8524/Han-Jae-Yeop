@@ -21,6 +21,7 @@ private:
 	int MobCnt;
 	int StageCnt;
 	int Flag;
+	int SoundSt;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

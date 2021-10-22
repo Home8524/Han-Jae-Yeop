@@ -14,6 +14,7 @@ void SoundManager::Initialize()
 		cout << "Initialization error" << endl;
 		return;
 	}
+	Time = GetTickCount64();
 }
 
 void SoundManager::LoadSoundDate(const char* _FileName, string _Key)
@@ -58,7 +59,24 @@ void SoundManager::OnPlaySound(string _Key)
 	}
 
 }
+void SoundManager::StopSound(string _Key)
+{
+	// ** 사운드를 찾는다
+	map<string, SOUNDINFO*>::iterator iter = SoundList.find(_Key);
 
+	// ** 만약에 찾는 사운드가 없다면
+	if (iter == SoundList.end())
+	{
+		//**
+		cout << "Not exist Sound" << endl;
+		return;
+	}
+
+	else
+	{
+		iter->second->SoundChannel->stop();
+	}
+}
 void SoundManager::Release()
 {
 	for (map<string, SOUNDINFO*>::iterator iter = SoundList.begin(); iter != SoundList.end(); ++iter)
@@ -71,24 +89,35 @@ void SoundManager::Release()
 
 void SoundManager::VolumeUp()
 {
-	if (Volume < SOUND_VOLUME_MAX)
+	if (Time + 1000 < GetTickCount64())
 	{
-		Volume += SOUND_VOLUME;
-		for (map<string, SOUNDINFO*>::iterator iter = SoundList.begin(); iter != SoundList.end(); ++iter)
+		printf("%.2f\n", Volume);
+		if (Volume < SOUND_VOLUME_MAX)
 		{
-			iter->second->SoundChannel->setVolume(Volume);
+			Volume += SOUND_VOLUME;
+			for (map<string, SOUNDINFO*>::iterator iter = SoundList.begin(); iter != SoundList.end(); ++iter)
+			{
+				iter->second->SoundChannel->setVolume(Volume);
+			}
 		}
+		Time = GetTickCount64();
 	}
 }
 
 void SoundManager::VolumeDown()
 {
-	if (Volume > SOUND_VOLUME_MIN)
+	if (Time + 1000 < GetTickCount64())
 	{
-		Volume -= SOUND_VOLUME;
-		for (map<string, SOUNDINFO*>::iterator iter = SoundList.begin(); iter != SoundList.end(); ++iter)
+		printf("%.2f\n", Volume);
+		if (Volume > SOUND_VOLUME_MIN)
 		{
-			iter->second->SoundChannel->setVolume(Volume);
+			Volume -= SOUND_VOLUME;
+			for (map<string, SOUNDINFO*>::iterator iter = SoundList.begin(); iter != SoundList.end(); ++iter)
+			{
+				iter->second->SoundChannel->setVolume(Volume);
+				//iter->second->SoundChannel->setPaused(false);
+			}
 		}
+		Time = GetTickCount64();
 	}
 }

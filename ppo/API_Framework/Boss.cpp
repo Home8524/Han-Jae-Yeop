@@ -4,6 +4,7 @@
 #include "Blt.h"
 #include "ObjectFactory.h"
 #include "ScoreManager.h"
+#include "SoundManager.h"
 Boss::Boss()
 {
 
@@ -41,6 +42,8 @@ void Boss::Initialize()
 	HpBar = false;
 	TP = ObjectManager::GetInstance()->GetPlayer();
 	Cng = 0;
+	SoundManager::GetInstance()->StopSound("BGM2");
+	SoundManager::GetInstance()->OnPlaySound("BGM4");
 }
 
 int Boss::Update()

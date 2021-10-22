@@ -4,6 +4,8 @@
 class Object;
 class Logo : public Scene
 {
+public:
+	int Bgmstart;
 private:
 	map<string, Bitmap*> ImageList;
 	Object* LogoBack;

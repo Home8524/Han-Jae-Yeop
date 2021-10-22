@@ -1,7 +1,7 @@
 #include "Level.h"
 #include "SceneManager.h"
 #include "Level_Back.h"
-
+#include "SoundManager.h"
 Level::Level() 
 {
 
@@ -19,6 +19,7 @@ void Level::Initialize()
 
 	ImageList = Object::GetImageList();
 	Time = GetTickCount64();
+	SoundManager::GetInstance()->StopSound("BGM1");
 }
 
 void Level::Update()
@@ -27,7 +28,6 @@ void Level::Update()
 	tmp = State_Back->Update();
 	
 	if (GetAsyncKeyState('Z') && tmp == 1 && Time + 100 < GetTickCount64()) {
-
 		SceneManager::GetInstance()->SetScene(SCENEID::STAGE1);
 		Time = GetTickCount64();
 	}

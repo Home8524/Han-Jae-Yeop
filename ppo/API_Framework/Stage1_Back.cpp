@@ -1,7 +1,6 @@
 #include "Stage1_Back.h"
 #include "InputManager.h"
 #include "ObjectManager.h"
-
 Stage1_Back::Stage1_Back()
 {
 

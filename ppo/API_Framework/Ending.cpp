@@ -1,6 +1,7 @@
 #include "Ending.h"
 #include "SceneManager.h"
 #include "End_Back.h"
+#include "SoundManager.h"
 Ending::Ending()
 {
 
@@ -17,6 +18,8 @@ void Ending::Initialize()
 	MenuBack->Initialize();
 	ImageList = Object::GetImageList();
 	Time = GetTickCount64();
+	SoundManager::GetInstance()->StopSound("BGM4");
+	SoundManager::GetInstance()->OnPlaySound("BGM18");
 }
 
 void Ending::Update()

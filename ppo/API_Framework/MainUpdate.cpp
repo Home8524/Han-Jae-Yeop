@@ -37,10 +37,11 @@ void MainUpdate::Initialize()
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/th06_15.wav", "BGM15");
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/th06_16.wav", "BGM16");
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/th06_17.wav", "BGM17");
+	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/forget.mp3", "BGM18");
 #pragma endregion
 	
 	m_hdc = GetDC(g_hWnd);
-	BgmNum = 0;
+	
 	SceneManager::GetInstance()->SetScene(SCENEID::LOGO);
 }
 
@@ -48,13 +49,12 @@ void MainUpdate::Update()
 {
 	SoundManager::GetInstance()->StreamingUpdate();
 
-	if (GetAsyncKeyState(VK_SPACE)){
-		SoundManager::GetInstance()->OnPlaySound("BGM1");
-	}
+	/*
 	if (GetAsyncKeyState(VK_UP))
 		SoundManager::GetInstance()->VolumeUp();
 	if (GetAsyncKeyState(VK_DOWN))
 		SoundManager::GetInstance()->VolumeDown();
+	*/
 
 
 	SceneManager::GetInstance()->Update();

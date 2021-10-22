@@ -7,7 +7,7 @@
 #include "ObjectFactory.h"
 #include "Logo_Back.h"
 #include "ScoreManager.h"
-
+#include "SoundManager.h"
 Logo::Logo()
 {
 
@@ -89,12 +89,16 @@ void Logo::Initialize()
 	LogoBack->Initialize();
 	ScoreManager::GetInstance()->SetImage((new Bitmap)->LoadBmp(L"../Resource/TH_Resource/Number.bmp"));
 	Object::SetImageList(ImageList);
+	SoundManager::GetInstance()->OnPlaySound("BGM1");
 }
 
 void Logo::Update()
 {
 	if (GetAsyncKeyState('Z'))
+	{
 		SceneManager::GetInstance()->SetScene(SCENEID::MENU);
+	}
+
 }
 
 void Logo::Render(HDC _hdc)
