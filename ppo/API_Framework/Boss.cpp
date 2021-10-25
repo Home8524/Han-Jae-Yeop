@@ -87,6 +87,7 @@ int Boss::Update()
 		int Tmp;
 		Tmp = TP->GetPhase();
 		if (Tmp == 1) {
+			SoundManager::GetInstance()->OnPlaySound("Clear");
 			int Sc = ScoreManager::GetInstance()->GetScore();
 			Sc += 1000;
 			ScoreManager::GetInstance()->SetScore(Sc);
@@ -135,6 +136,7 @@ int Boss::Update()
 		int Tmp;
 		Tmp = TP->GetPhase();
 		if (Tmp == 2) {
+			SoundManager::GetInstance()->OnPlaySound("Clear");
 			int Sc = ScoreManager::GetInstance()->GetScore();
 			Sc += 1000;
 			ScoreManager::GetInstance()->SetScore(Sc);

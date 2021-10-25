@@ -99,6 +99,7 @@ void Stage1::Update()
 				
 				if (Time2 + 3000 < GetTickCount64())
 				{
+					SoundManager::GetInstance()->OnPlaySound("Hit");
 					int Tmp = m_pPlayer->GetHp();
 					Tmp--;
 					m_pPlayer->SetHp(Tmp);
@@ -168,6 +169,7 @@ void Stage1::Update()
 					(*iter2)->SetHp(tmp);
 					if (tmp == 0)
 					{
+						SoundManager::GetInstance()->OnPlaySound("Kill");
 						int Sc = ScoreManager::GetInstance()->GetScore();
 						Sc += 100;
 						if (m_pPlayer->GetPhase() == 3)
@@ -271,11 +273,11 @@ void Stage1::Render(HDC _hdc)
 	for (vector<Object*>::iterator iter = BulletList->begin();
 		iter != BulletList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
-
+	
 	for (vector<Object*>::iterator iter = EnemyList->begin();
 		iter != EnemyList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
-
+	
 	for (vector<Object*>::iterator iter = ItemList->begin();
 		iter != ItemList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());

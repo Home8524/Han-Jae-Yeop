@@ -13,11 +13,11 @@ NormalBullet3::~NormalBullet3()
 
 void NormalBullet3::Initialize()
 {
-	Speed = 3.0f;
+	Speed = 5.0f;
 	DrawKey = "Bullet1";
 
 	ImageList = Object::GetImageList();
-	RealObject->SetPosition(23 + int(RealObject->GetPosition().x), -40 + int(RealObject->GetPosition().y));
+	RealObject->SetPosition(18 + int(RealObject->GetPosition().x), -40 + int(RealObject->GetPosition().y));
 }
 
 int NormalBullet3::Update(Transform& _rTransInfo)
@@ -40,12 +40,12 @@ void NormalBullet3::Render(HDC _hdc)
 	TransparentBlt(_hdc, // ** 최종 출력 위치
 		int(RealObject->GetPosition().x - (RealObject->GetScale().x / 2)),
 		int(RealObject->GetPosition().y - (RealObject->GetScale().y / 2)),
-		17,
+		14,
 		16,
 		ImageList[DrawKey]->GetMemDC(),
 		0,
 		0,
-		17,
+		14,
 		16,
 		RGB(255, 0, 255));
 

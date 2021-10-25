@@ -38,6 +38,11 @@ void MainUpdate::Initialize()
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/th06_16.wav", "BGM16");
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/th06_17.wav", "BGM17");
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/forget.mp3", "BGM18");
+	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/Bullet.mp3", "Bullet");
+	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/Clear.mp3", "Clear");
+	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/Kill.mp3", "Kill");
+	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/Playerhit.mp3", "Hit");
+
 #pragma endregion
 	
 	m_hdc = GetDC(g_hWnd);

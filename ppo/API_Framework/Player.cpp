@@ -2,9 +2,9 @@
 #include "InputManager.h"
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
-
 #include "Bullet.h"
 #include "Blt.h"
+#include "SoundManager.h"
 
 Player::Player()
 {
@@ -88,14 +88,15 @@ int Player::Update()
 	
 	if (GetAsyncKeyState('Z'))
 	{
-		if(Time+60<GetTickCount64()){
-		Object::SetImageList(ImageList);
-		BulletList->push_back(CreateBullet<NormalBullet>());
-		if(Power>5)
-			BulletList->push_back(CreateBullet<NormalBullet2>());
-		if(Power>10)
-			BulletList->push_back(CreateBullet<NormalBullet3>());
-		Time = GetTickCount64();
+		if(Time+100<GetTickCount64()){
+			SoundManager::GetInstance()->OnPlaySound("Bullet");
+			Object::SetImageList(ImageList);
+			BulletList->push_back(CreateBullet<NormalBullet>());
+			if(Power>5)
+				BulletList->push_back(CreateBullet<NormalBullet2>());
+			if(Power>10)
+				BulletList->push_back(CreateBullet<NormalBullet3>());
+			Time = GetTickCount64();
 		}
 	}
 
