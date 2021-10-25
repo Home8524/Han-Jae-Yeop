@@ -48,6 +48,11 @@ void Magic::Initialize()
 
 int Magic::Update(Transform& _rTransInfo)
 {
+	int Tmp;
+	Object* P = ObjectManager::GetInstance()->GetPlayer();
+	Tmp = P->GetPhase();
+
+	if (Tmp == 2) return 1;
 
 	if (Time + 1000 < GetTickCount64())
 	{
