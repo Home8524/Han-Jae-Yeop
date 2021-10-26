@@ -30,7 +30,7 @@ void Stage1::Initialize()
 	Object::SetMobNum(a);
 	EnemyList = ObjectManager::GetInstance()->GetEnemyList();
 	// ** Àû »ý¼º
-	for (int i = 0; i < 8; ++i)
+	for (int i = 0; i < 5; ++i)
 	{
 		Object* pObj = new Enemy;
 		pObj->Initialize();
@@ -44,7 +44,7 @@ void Stage1::Initialize()
 
 		EnemyList->push_back(pObj);
 	}
-	MobCnt = 8;
+	MobCnt = 5;
 	//StageCnt = 0~1 ->mob1 , 2~3 -> mob2 4> boss
 	StageCnt = 0;
 	Time = GetTickCount64();
@@ -269,7 +269,8 @@ void Stage1::Render(HDC _hdc)
 	m_pPlayer->Render(ImageList["Buffer"]->GetMemDC());
 	bool Vis = Effect->GetActive();
 	if(Vis)	Effect->Render(ImageList["Buffer"]->GetMemDC());
-
+	
+	
 	for (vector<Object*>::iterator iter = BulletList->begin();
 		iter != BulletList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
@@ -285,6 +286,7 @@ void Stage1::Render(HDC _hdc)
 	for (vector<Object*>::iterator iter = EnemyBulletList->begin();
 		iter != EnemyBulletList->end(); ++iter)
 		(*iter)->Render(ImageList["Buffer"]->GetMemDC());
+	
 	
 	if (SoundSt == 0)
 	{
@@ -312,5 +314,4 @@ void Stage1::Release()
 	EnemyBulletList->shrink_to_fit();
 	ItemList->shrink_to_fit();
 	BulletList->shrink_to_fit();
-	//delete m_pPlayer;
 }

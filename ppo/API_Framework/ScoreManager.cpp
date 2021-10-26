@@ -39,10 +39,10 @@ void ScoreManager::Render(HDC _hdc)
 			32,
 			42,
 			Image->GetMemDC(),
-			int(64) * Tmp,
-			int(85) * 0,
-			int(64),
-			int(85),
+			int(16) * Tmp,
+			int(17) * 0,
+			int(16),
+			int(17),
 			RGB(255, 0, 255));
 		i += 40;
 	}
