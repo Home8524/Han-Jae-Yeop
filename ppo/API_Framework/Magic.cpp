@@ -3,6 +3,7 @@
 #include "CollisionManager.h"
 #include "ObjectManager.h"
 #include "ColBox.h"
+#include "SoundManager.h"
 Magic::Magic()
 {
 
@@ -54,40 +55,10 @@ int Magic::Update(Transform& _rTransInfo)
 
 	if (Tmp == 2) return 1;
 
-	if (Time + 1000 < GetTickCount64())
-	{
-		Flag = 1;
-	}
-	if (Time + 2000 < GetTickCount64())
-	{
-		Flag = 2;
-		Object* m_pPlayer;
-		m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
+	if (Time + 5000 < GetTickCount64())
+		return 1;
 
-		for (vector<Object*>::iterator iter = T.begin();
-			iter != T.end(); ++iter)
-		{
-
-			if (CollisionManager::RectCollision((*iter), m_pPlayer))
-			{
-				int Tmp = m_pPlayer->GetHp();
-				Tmp--;
-				m_pPlayer->SetHp(Tmp);
-				if (Tmp == 0)
-				{
-					int End = 4;
-					m_pPlayer->SetPhase(End);
-					break;
-				}
-				m_pPlayer->SetColliderPosition(Vector3(WindowsWidth / 2, WindowsHeight / 2 + 180.0f));
-				m_pPlayer->SetPosition(Vector3(WindowsWidth / 2, WindowsHeight / 2 + 200.0f));
-
-			}
-
-		}
-	}
-	
-	if (Time + 3000 < GetTickCount64())
+	else if (Time + 3000 < GetTickCount64())
 	{
 		Flag = 3;
 		Object* m_pPlayer;
@@ -116,9 +87,43 @@ int Magic::Update(Transform& _rTransInfo)
 		}
 		
 	}
+	else if (Time + 2000 < GetTickCount64())
+	{
+		Flag = 2;
+		Object* m_pPlayer;
+		m_pPlayer = ObjectManager::GetInstance()->GetPlayer();
+
+		for (vector<Object*>::iterator iter = T.begin();
+			iter != T.end(); ++iter)
+		{
+
+			if (CollisionManager::RectCollision((*iter), m_pPlayer))
+			{
+				int Tmp = m_pPlayer->GetHp();
+				Tmp--;
+				m_pPlayer->SetHp(Tmp);
+				if (Tmp == 0)
+				{
+					int End = 4;
+					m_pPlayer->SetPhase(End);
+					break;
+				}
+				m_pPlayer->SetColliderPosition(Vector3(WindowsWidth / 2, WindowsHeight / 2 + 180.0f));
+				m_pPlayer->SetPosition(Vector3(WindowsWidth / 2, WindowsHeight / 2 + 200.0f));
+
+			}
+
+		}
+	}
 	
-	if (Time + 5000 < GetTickCount64())
-		return 1;
+	else if (Time + 1000 < GetTickCount64())
+	{
+		bool Stay;
+		Stay = SoundManager::GetInstance()->StayPlaying("Blaster");
+		if (!Stay)	SoundManager::GetInstance()->OnPlaySound("Blaster");
+		Flag = 1;
+	}
+	
 	
 	return 0;
 }

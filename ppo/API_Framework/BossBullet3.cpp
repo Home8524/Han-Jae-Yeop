@@ -13,7 +13,7 @@ BossBullet3::~BossBullet3()
 
 void BossBullet3::Initialize()
 {
-	Speed = 2.0f;
+	Speed = 4.0f;
 	DrawKey = "BossBullet1";
 	ImageList = Object::GetImageList();
 }

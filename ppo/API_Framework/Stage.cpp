@@ -3,7 +3,7 @@
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
 #include "Stage_Back.h"
-
+#include "SoundManager.h"
 
 Stage::Stage()
 {
@@ -20,7 +20,6 @@ void Stage::Initialize()
 	State_Back = new Stage_Back;
 	State_Back->Initialize();
 
-	
 	Time = GetTickCount64();
 	ImageList = Object::GetImageList();
 }

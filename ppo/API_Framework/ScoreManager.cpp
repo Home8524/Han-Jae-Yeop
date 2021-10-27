@@ -35,7 +35,7 @@ void ScoreManager::Render(HDC _hdc)
 		Tmp = (*iter);
 		TransparentBlt(_hdc, // ** 최종 출력 위치
 			int(100)+i,
-			int(50),
+			int(100),
 			32,
 			42,
 			Image->GetMemDC(),

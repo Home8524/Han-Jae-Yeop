@@ -85,6 +85,13 @@ void Logo::Initialize()
 	ImageList["Heart"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/heart.bmp");
 	ImageList["Fire"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/fire.bmp");
 	ImageList["Cloud"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/cloud.bmp");
+
+	ImageList["Result1"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/result.bmp");
+	ImageList["Result2"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/result2.bmp");
+	ImageList["Result3"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/result3.bmp");
+	ImageList["Result4"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/result4.bmp");
+	ImageList["Result5"] = (new Bitmap)->LoadBmp(L"../Resource/TH_Resource/result5.bmp");
+
 	LogoBack = new Logo_Back;
 	LogoBack->Initialize();
 	ScoreManager::GetInstance()->SetImage((new Bitmap)->LoadBmp(L"../Resource/TH_Resource/Number.bmp"));

@@ -27,6 +27,8 @@ void Ending::Update()
 
 	if (GetAsyncKeyState('X') && Time + 100 < GetTickCount64()) {
 
+		SoundManager::GetInstance()->StopSound("BGM18");
+		SoundManager::GetInstance()->OnPlaySound("BGM1");
 		SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
 		Time = GetTickCount64();
 	}

@@ -34,7 +34,7 @@ void Boss::Initialize()
 	Time = GetTickCount64();
 	Time2 = GetTickCount64();
 	Time3 = GetTickCount64();
-	Time4 = GetTickCount64() - 10000;
+	Time4 = GetTickCount64();
 	Frame = 200;
 	MoveTerm = 5000;
 	Left = true;
@@ -78,6 +78,7 @@ int Boss::Update()
 		if (Time4 + 5000 < GetTickCount64())
 		{
 			BulletList->push_back(CreateBullet<Magic>());
+			
 			Time4 = GetTickCount64();
 		}
 		Frame = 200;
@@ -97,8 +98,9 @@ int Boss::Update()
 		TransInfo.Position.x = 320.0f;
 
 		Object::SetImageList(ImageList);
-		if (Time2 + 1000 < GetTickCount64())
+		if (Time2 + 500 < GetTickCount64())
 		{
+			SoundManager::GetInstance()->OnPlaySound("EB");
 			BulletList->push_back(CreateBullet<BossBullet1>());
 			BulletList->push_back(CreateBullet<BossBullet2>());
 			BulletList->push_back(CreateBullet<BossBullet3>());
@@ -109,7 +111,7 @@ int Boss::Update()
 			BulletList->push_back(CreateBullet<BossBullet8>());
 			Time2 = GetTickCount64();
 		}
-		if (Time3 + 500 < GetTickCount64())
+		if (Time3 + 300 < GetTickCount64())
 		{
 			BulletList->push_back(CreateBullet<Sbullet1>());
 			BulletList->push_back(CreateBullet<Sbullet2>());

@@ -26,6 +26,7 @@ public:
 	void Release();
 	void VolumeUp();
 	void VolumeDown();
+	bool StayPlaying(string _Key);
 private:
 	SoundManager() {};
 public:

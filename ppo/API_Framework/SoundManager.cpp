@@ -63,7 +63,6 @@ void SoundManager::StopSound(string _Key)
 {
 	// ** 사운드를 찾는다
 	map<string, SOUNDINFO*>::iterator iter = SoundList.find(_Key);
-
 	// ** 만약에 찾는 사운드가 없다면
 	if (iter == SoundList.end())
 	{
@@ -120,4 +119,12 @@ void SoundManager::VolumeDown()
 		}
 		Time = GetTickCount64();
 	}
+}
+
+bool SoundManager::StayPlaying(string _Key)
+{
+	map<string, SOUNDINFO*>::iterator iter = SoundList.find(_Key);
+	bool Tmp;
+	iter->second->SoundChannel->isPlaying(&Tmp);
+	return Tmp;
 }

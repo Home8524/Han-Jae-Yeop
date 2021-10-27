@@ -42,6 +42,8 @@ void MainUpdate::Initialize()
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/Clear.mp3", "Clear");
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/Kill.mp3", "Kill");
 	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/Playerhit.mp3", "Hit");
+	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/EBullet.mp3", "EB");
+	SoundManager::GetInstance()->LoadSoundDate("../Resource/Sound/Blaster.mp3", "Blaster");
 
 #pragma endregion
 	

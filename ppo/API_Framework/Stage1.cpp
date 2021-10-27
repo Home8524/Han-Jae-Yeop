@@ -135,6 +135,9 @@ void Stage1::Update()
 			// ** 충돌 처리
 			if (CollisionManager::EllipseCollision((*iter), m_pPlayer))
 			{
+				int Sc = ScoreManager::GetInstance()->GetScore();
+				Sc += 15;
+				ScoreManager::GetInstance()->SetScore(Sc);
 				int Tmp;
 				Tmp = m_pPlayer->GetPower();
 				Tmp++;
