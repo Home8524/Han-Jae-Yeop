@@ -9,6 +9,7 @@ void ScoreManager::Initialize()
 
 void ScoreManager::MakeScoreNumber()
 {
+	NumberList.clear();
 	stack<int> Numbers;
 	Sc2 = Score;
 	if (Sc2 == 0)

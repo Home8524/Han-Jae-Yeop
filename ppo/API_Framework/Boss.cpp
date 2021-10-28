@@ -153,6 +153,7 @@ int Boss::Update()
 		}
 		if (Time3 + 50 < GetTickCount64())
 		{
+			SoundManager::GetInstance()->OnPlaySound("EB");
 			if (Cng < 8)
 			{
 				BulletList->push_back(CreateBullet<Rbullet1>());
