@@ -154,6 +154,12 @@
     <Filter Include="소스 파일\99. Manager\SoundManager">
       <UniqueIdentifier>{0778038b-af5a-4b77-b488-661a39a5d90c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01. Scene\Score">
+      <UniqueIdentifier>{c7357b69-e417-45ac-9e3b-b3f8ecbc478c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\BackGround\Score_Back">
+      <UniqueIdentifier>{0d55618c-fc79-447e-b7b7-ea62f96605f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API_Framework.h">
@@ -450,6 +456,12 @@
     <ClInclude Include="SoundManager.h">
       <Filter>소스 파일\99. Manager\SoundManager</Filter>
     </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>소스 파일\01. Scene\Score</Filter>
+    </ClInclude>
+    <ClInclude Include="Score_Back.h">
+      <Filter>소스 파일\02. Object\BackGround\Score_Back</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="API_Framework.cpp">
@@ -712,6 +724,12 @@
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
       <Filter>소스 파일\99. Manager\SoundManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
+      <Filter>소스 파일\01. Scene\Score</Filter>
+    </ClCompile>
+    <ClCompile Include="Score_Back.cpp">
+      <Filter>소스 파일\02. Object\BackGround\Score_Back</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

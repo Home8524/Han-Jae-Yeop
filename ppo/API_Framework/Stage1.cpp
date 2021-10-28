@@ -64,6 +64,8 @@ void Stage1::Initialize()
 	Effect = new Effect1;
 	Effect->Initialize();
 	SoundSt = 0;
+	int InitScore = 0;
+	ScoreManager::GetInstance()->SetScore(InitScore);
 }
 
 void Stage1::Update()

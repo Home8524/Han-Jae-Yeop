@@ -15,6 +15,7 @@ public:
 	}
 private:
 	UINT Score;
+	int Sc2;
 	vector<int> NumberList;
 	Bitmap* Image;
 public:
@@ -22,7 +23,7 @@ public:
 	UINT GetScore() { return Score; }
 	void SetScore(int _Score) { Score = _Score; }
 	void SetImage(Bitmap* _Image) { Image = _Image; }
-
+	Bitmap* GetImage() { return Image; }
 	vector<int>* GetScoreNumber() { return &NumberList; }
 
 	void MakeScoreNumber();

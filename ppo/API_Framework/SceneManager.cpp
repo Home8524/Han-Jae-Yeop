@@ -6,6 +6,7 @@
 #include "Level.h"
 #include "Stage1.h"
 #include "Ending.h"
+#include "Score.h"
 SceneManager* SceneManager::Instance = nullptr;
 
 
@@ -26,12 +27,14 @@ void SceneManager::SetScene(SCENEID _SceneID)
 	case SCENEID::STAGE:
 		pSceneState = new Stage;
 		break;
-	
 	case SCENEID::LEVEL:
 		pSceneState = new Level;
 		break;
 	case SCENEID::STAGE1:
 		pSceneState = new Stage1;
+		break;
+	case SCENEID::SCORE:
+		pSceneState = new Score;
 		break;
 	case SCENEID::END:
 		pSceneState = new Ending;

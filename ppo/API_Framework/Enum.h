@@ -8,5 +8,6 @@ enum class SCENEID
 	LEVEL,
 	EXIT ,
 	STAGE1,
+	SCORE,
 	END,
 };

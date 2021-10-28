@@ -35,7 +35,12 @@ void Stage::Update()
 		SceneManager::GetInstance()->SetScene(SCENEID::LEVEL);
 		Time = GetTickCount64();
 	}
-	
+
+	if (GetAsyncKeyState('Z') && tmp == 4 && Time + 100 < GetTickCount64()) {
+
+		SceneManager::GetInstance()->SetScene(SCENEID::SCORE);
+		Time = GetTickCount64();
+	}
 	if (GetAsyncKeyState('Z') && tmp == 7 && Time + 100 < GetTickCount64()) {
 
 		SceneManager::GetInstance()->SetScene(SCENEID::EXIT);

@@ -10,11 +10,16 @@ void ScoreManager::Initialize()
 void ScoreManager::MakeScoreNumber()
 {
 	stack<int> Numbers;
-
-	while (Score > 0)
+	Sc2 = Score;
+	if (Sc2 == 0)
 	{
-		int iTemp = int(Score % 10);
-		Score /= 10;
+		int iTemp = 0;
+		Numbers.push(iTemp);
+	}
+	while (Sc2 > 0)
+	{
+		int iTemp = int(Sc2 % 10);
+		Sc2 /= 10;
 
 		Numbers.push(iTemp);
 	}

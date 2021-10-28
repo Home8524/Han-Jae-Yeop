@@ -233,7 +233,9 @@
     <ClInclude Include="Sbullet9.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="ScoreManager.h" />
+    <ClInclude Include="Score_Back.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Stage1.h" />
@@ -324,7 +326,9 @@
     <ClCompile Include="Sbullet9.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
+    <ClCompile Include="Score_Back.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Stage1.cpp" />
